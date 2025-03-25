@@ -51,8 +51,12 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyGravity()
     {
+        var distance = Vector3.Distance(transform.position, planetPosition.position);
+
+        if (distance <= _planetRadius + transform.localScale.x) return;
+        
         Vector3 direction = (planetPosition.position - transform.position).normalized;
-        rb.AddForce(direction * (gravity * gravityForce));
+        rb.AddForce(direction * (gravity * gravityForce * distance));
     }
     
     private void RotateToPlanet()

@@ -1,7 +1,9 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
+/// <summary>
+/// A gameObject following the Player around a circle
+/// </summary>
 public class SmallEntity : MonoBehaviour
 {
     [SerializeField] private float _angleOffset;

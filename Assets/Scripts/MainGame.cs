@@ -1,3 +1,5 @@
+using System;
+using Garbage;
 using UnityEngine;
 
 /// <summary>
@@ -6,12 +8,13 @@ using UnityEngine;
 class MainGame : MonoBehaviour
 {
     public static MainGame Instance { get; private set; }
-
-    [field:SerializeField] public SmallEntitiesManager EntitiesManager { get; private set; }
     [field:SerializeField] public PlayerController Player { get; private set; }
+    [field:SerializeField] public TotalCleaningManager CleaningManager { get; private set; }
     private void Awake()
     {
         Instance = this;
     }
     
+    public Action<Garbage.Garbage> OnGarbageCleaned;
+
 }

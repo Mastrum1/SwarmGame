@@ -272,6 +272,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28eae06fc90493742a1f86565149800d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &702655930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702655923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1259da91c24a6d34ba000c2454d018a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brush:
+    brushTexture: {fileID: 2800000, guid: f198c1c995ef08c478009b65a48af828, type: 3}
+    brushNormalTexture: {fileID: 2800000, guid: 945b831b22eb06945bf77e00f16ff51a, type: 3}
+    brushHeightTexture: {fileID: 0}
+    brushScale: 0.05
+    rotateAngle: 0
+    brushNormalBlend: 0.1
+    brushHeightBlend: 0
+    brushColor: {r: 0, g: 0.97735846, b: 0.02302265, a: 0.4392157}
+    colorBlendType: 0
+    normalBlendType: 0
+    heightBlendType: 0
+  wait: 3
 --- !u!1001 &1197027411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +524,7 @@ GameObject:
   - component: {fileID: 1314472749}
   - component: {fileID: 1314472748}
   - component: {fileID: 1314472747}
+  - component: {fileID: 1314472750}
   m_Layer: 8
   m_Name: Planet
   m_TagString: Untagged
@@ -565,7 +591,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b032b270160015f4da1b432193c96a0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -595,6 +621,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314472745}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1314472750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314472745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cc1b9412eea6e4a8798f4b2f88b4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintSet:
+  - mainTextureName: _MainTex
+    normalTextureName: _BumpMap
+    heightTextureName: _ParallaxMap
+    useMainPaint: 1
+    useNormalPaint: 1
+    useHeightPaint: 0
 --- !u!1001 &1036350961671929176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,6 +717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4546561458055362291, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fab9004395b13714ba4d4a80d6aa031e, type: 2}
     - target: {fileID: 5515042666603800646, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -720,10 +769,33 @@ PrefabInstance:
       propertyPath: planetPosition
       value: 
       objectReference: {fileID: 1314472746}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseRatio.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseRatio.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseRatio.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseRatio.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseRatio.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1186679634981222013, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 702655930}
   m_SourcePrefab: {fileID: 100100000, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
 --- !u!1001 &5590923692759108070
 PrefabInstance:

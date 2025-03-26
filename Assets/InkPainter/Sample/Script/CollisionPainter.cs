@@ -15,8 +15,7 @@ namespace Es.InkPainter.Sample
 
 		public void Awake()
 		{
-			GetComponent<MeshRenderer>().material.color = brush.Color;
-
+			//GetComponent<MeshRenderer>().material.color = brush.Color;
 		}
 
         public void FixedUpdate()

@@ -23,7 +23,7 @@ MonoBehaviour:
       data:
         Enabled: 1
         Clips:
-        - {fileID: 8300000, guid: ce1a4f0ffc7144b40bd1fcb9c359b9b6, type: 3}
+        - {fileID: 8300000, guid: 0279b448460ab4f44844caa8f58e9757, type: 3}
     - rid: 5043051165980033031
       type: {class: EffectInstantiate, ns: FeedbacksEditor, asm: Assembly-CSharp}
       data:

@@ -7,5 +7,18 @@ using UnityEngine;
 public class SmallEntitiesManager : MonoBehaviour
 {
     [field:SerializeField] public List<SmallEntity> Entities {get; private set;}
-    
+    [SerializeField] private SmallEntity _entityPrefab;
+
+    public void AddEntities(int garbageEntitiesToAdd)
+    {
+        for (int i = 0; i < garbageEntitiesToAdd; i++)
+        {
+            SpawnEntity();
+        }
+    }
+
+    private void SpawnEntity()
+    {
+        Instantiate(_entityPrefab, transform);
+    }
 }

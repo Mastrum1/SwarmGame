@@ -1924,7 +1924,11 @@ MonoBehaviour:
   rb: {fileID: 744354685}
   planetPosition: {fileID: 1979507764}
   gravity: 1500
-  gravityForce: 1
+  gravityStrength: 1
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCollider: {fileID: 1979507764}
 --- !u!135 &744354687
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8311,6 +8315,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _entityPrefab: {fileID: 0}
 --- !u!1001 &1092993845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11251,8 +11256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8475e6afb29d4c168d53af13e4deaa69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EntitiesManager>k__BackingField: {fileID: 1058879166}
   <Player>k__BackingField: {fileID: 744354686}
+  <CleaningManager>k__BackingField: {fileID: 0}
 --- !u!1001 &6235435220183032056
 PrefabInstance:
   m_ObjectHideFlags: 0

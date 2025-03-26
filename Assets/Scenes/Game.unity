@@ -786,8 +786,144 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: mouseRatio.m_Curve.Array.data[1].outSlope
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[0].time
+      value: 0.00033187494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].time
+      value: 0.25160253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].time
+      value: 0.7369894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].time
+      value: 1.8652039
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[4].time
+      value: 2.9436665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[0].value
+      value: 0.30201286
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].value
+      value: 0.31610674
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].value
+      value: 0.41629276
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].value
+      value: 0.11779785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[4].value
+      value: 0.013174031
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[0].inSlope
+      value: 0.05609042
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].inSlope
+      value: 0.13124745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].inSlope
+      value: -0.029084176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].inSlope
+      value: -0.18079242
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[4].inSlope
+      value: -0.09701201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[0].outSlope
+      value: 0.05609042
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].outSlope
+      value: 0.13124745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].outSlope
+      value: -0.029084176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].outSlope
+      value: -0.18079242
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[4].outSlope
+      value: -0.09701201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[4].tangentMode
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

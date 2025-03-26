@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private AnimationCurve mouseSensitivityCurve;
     
     [Header("Planet")]
     [SerializeField] private Transform planetPosition;
@@ -68,8 +68,17 @@ public class PlayerController : MonoBehaviour
     private void Rotate()
     {
         Vector2 mouseDelta = _lookAction.ReadValue<Vector2>();
-        var rotation = new Vector3(0, mouseDelta.x, 0);
-        transform.Rotate(rotation);
+        
+        var mouseSensitivity = mouseSensitivityCurve.Evaluate(mouseDelta.magnitude);
+        var rotation = new Vector3(0, mouseDelta.x * mouseSensitivity, 0);
+
+        if (Gamepad.current == null)
+        {
+            transform.Rotate(-rotation);
+            return;
+        }
+        rotation = new Vector3(0, mouseDelta.x * 3, 0);
+        transform.Rotate(-rotation);
     }
     
     private void Jump()

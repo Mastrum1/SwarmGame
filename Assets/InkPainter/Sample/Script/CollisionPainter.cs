@@ -15,30 +15,26 @@ namespace Es.InkPainter.Sample
 
 		public void Awake()
 		{
-			//GetComponent<MeshRenderer>().material.color = brush.Color;
+			GetComponent<MeshRenderer>().material.color = brush.Color;
 		}
 
-        public void FixedUpdate()
+		public void FixedUpdate()
 		{
 			++waitCount;
 		}
 
 		public void OnCollisionStay(Collision collision)
-        {
-            PaintPoints(collision);
-        }
+		{
+			if(waitCount < wait)
+				return;
+			waitCount = 0;
 
-        private void PaintPoints(Collision collision)
-        {
-            if (waitCount < wait)
-                return;
-            waitCount = 0;
-
-            foreach (var p in collision.contacts)
-            {
-                if (p.otherCollider.TryGetComponent<InkCanvas>(out var canvas))
-                    canvas.Paint(brush, p.point);
-            }
-        }
-    }
+			foreach(var p in collision.contacts)
+			{
+				var canvas = p.otherCollider.GetComponent<InkCanvas>();
+				if(canvas != null)
+					canvas.Paint(brush, p.point);
+			}
+		}
+	}
 }

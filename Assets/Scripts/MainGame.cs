@@ -9,6 +9,7 @@ class MainGame : MonoBehaviour
 {
     public static MainGame Instance { get; private set; }
     [field:SerializeField] public PlayerController Player { get; private set; }
+    [field:SerializeField] public Transform Planet { get; private set; }
     [field:SerializeField] public TotalCleaningManager CleaningManager { get; private set; }
     private void Awake()
     {

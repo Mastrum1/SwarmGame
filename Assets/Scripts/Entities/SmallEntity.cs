@@ -37,7 +37,7 @@ public class SmallEntity : MonoBehaviour
         _lerp = Random.Range(_minLerp, _maxLerp);
     }
 
-    public void Update()
+    public void FixedUpdate()
     { 
         var direction = new Vector3(Mathf.Cos(_currentAngle), 0, Mathf.Sin(_currentAngle));
         _currentAngle += _angleOffset * _directionInverted * _speed * Time.deltaTime;

@@ -18,6 +18,7 @@ namespace Garbage
 
         private void Start()
         {
+            AssignGarbages();
             foreach (var garbage in _totalGarbages)
             {
                 _totalGarbage += garbage.EntitiesToAdd;

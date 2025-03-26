@@ -19,51 +19,55 @@ Shader "Es/Effective/GrabArea"{
 	}
 
 	SubShader{
-		CGINCLUDE
+		
+		Tags {"RenderPipeline" = "UniversalPipeline" }		
 
+		Pass{
+			HLSLPROGRAM
+#pragma multi_compile WRAP_MODE_CLAMP WRAP_MODE_REPEAT WRAP_MODE_CLIP
+#pragma multi_compile ALPHA_REPLACE ALPHA_NOT_REPLACE
+#pragma vertex vert
+#pragma fragment frag
+
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "../Lib/InkPainterFoundation.cginc"
 
-			struct app_data {
+			struct Attributes {
 				float4 vertex:POSITION;
 				float4 uv:TEXCOORD0;
 			};
 
-			struct v2f {
+			struct Varyings {
 				float4 screen:SV_POSITION;
 				float4 uv:TEXCOORD0;
 			};
 
 			sampler2D _TargetTex;
 			sampler2D _ClipTex;
-			float4 _ClipUV;
-			float _ClipScale;
-			float _Rotate;
 
-		ENDCG
+			CBUFFER_START(UnityPerMaterial)
+			half4 _ClipUV;
+			half _ClipScale;
+			half _Rotate;
+			CBUFFER_END	
 
-		Pass{
-			CGPROGRAM
-#pragma multi_compile WRAP_MODE_CLAMP WRAP_MODE_REPEAT WRAP_MODE_CLIP
-#pragma multi_compile ALPHA_REPLACE ALPHA_NOT_REPLACE
-#pragma vertex vert
-#pragma fragment frag
 
-			v2f vert(app_data i) {
-				v2f o;
-				o.screen = UnityObjectToClipPos(i.vertex);
+			Varyings vert(Attributes i) {
+				Varyings o;
+				o.screen = TransformObjectToHClip(i.vertex);
 				o.uv = i.uv;
 				return o;
 			}
 
-			float4 frag(v2f i) : SV_TARGET {
-				float angle = _Rotate;
+			half4 frag(Varyings i) : SV_TARGET {
+				half angle = _Rotate;
 #if !UNITY_UV_STARTS_AT_TOP
 				angle = 180 - angle;
 #endif
 
-				float2 uv = Rotate(i.uv.xy - 0.5, angle) + 0.5;
-				float uv_x = (uv.x - 0.5) * _ClipScale * 2 + _ClipUV.x;
-				float uv_y = (uv.y - 0.5) * _ClipScale * 2 + _ClipUV.y;
+				half2 uv = Rotate(i.uv.xy - 0.5, angle) + 0.5;
+				half uv_x = (uv.x - 0.5) * _ClipScale * 2 + _ClipUV.x;
+				half uv_y = (uv.y - 0.5) * _ClipScale * 2 + _ClipUV.y;
 
 #if WRAP_MODE_CLAMP
 				//Clamp UV
@@ -81,15 +85,15 @@ Shader "Es/Effective/GrabArea"{
 				clip(trunc(uv_y) * -1);
 #endif
 
-				float4 base = tex2D(_TargetTex, float2(uv_x, uv_y));
+				half4 base = tex2D(_TargetTex, half2(uv_x, uv_y));
 #if ALPHA_REPLACE
-				float alpha = tex2D(_ClipTex, uv.xy).a;
+				half alpha = tex2D(_ClipTex, uv.xy).a;
 				base.a = alpha;
 #endif
 				return base;
 			}
 
-			ENDCG
+			ENDHLSL
 		}
 	}
 }

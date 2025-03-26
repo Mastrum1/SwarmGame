@@ -20,48 +20,53 @@ Shader "Es/InkPainter/PaintMain"{
 	}
 
 	SubShader{
-		CGINCLUDE
 
-#include "../Lib/InkPainterFoundation.cginc"
-
-			struct app_data {
-				float4 vertex:POSITION;
-				float4 uv:TEXCOORD0;
-			};
-
-			struct v2f {
-				float4 screen:SV_POSITION;
-				float4 uv:TEXCOORD0;
-			};
-
-			sampler2D _MainTex;
-			sampler2D _Brush;
-			float4 _PaintUV;
-			float _BrushScale;
-			float _BrushRotate;
-			float4 _ControlColor;
-		ENDCG
+		Tags {"RenderPipeline" = "UniversalPipeline" }			
 
 		Pass{
-			CGPROGRAM
+			HLSLPROGRAM
+
+
 #pragma multi_compile INK_PAINTER_COLOR_BLEND_USE_CONTROL INK_PAINTER_COLOR_BLEND_USE_BRUSH INK_PAINTER_COLOR_BLEND_NEUTRAL INK_PAINTER_COLOR_BLEND_ALPHA_ONLY
 #pragma vertex vert
 #pragma fragment frag
 
-			v2f vert(app_data i) {
-				v2f o;
-				o.screen = UnityObjectToClipPos(i.vertex);
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "../Lib/InkPainterFoundation.cginc"
+
+			struct Attributes {
+				half4 vertex:POSITION;
+				half4 uv:TEXCOORD0;
+			};
+
+			struct Varyings {
+				half4 uv:TEXCOORD0;
+				half4 screen:SV_POSITION;
+			};
+
+			sampler2D _MainTex;
+			sampler2D _Brush;
+			CBUFFER_START(UnityPerMaterial)
+			half4 _PaintUV;
+			half _BrushScale;
+			half _BrushRotate;
+			half4 _ControlColor;
+			CBUFFER_END	
+
+			Varyings vert(Attributes i) {
+				Varyings o;
+				o.screen = TransformObjectToHClip(i.vertex);
 				o.uv = i.uv;
 				return o;
 			}
 
-			float4 frag(v2f i) : SV_TARGET {
+			float4 frag(Varyings i) : SV_TARGET {
 				float h = _BrushScale;
 				float4 base = SampleTexture(_MainTex, i.uv.xy);
-				float4 brushColor = float4(1, 1, 1, 1);
+				float4 brushColor = half4(1, 1, 1, 1);
 
 				if (IsPaintRange(i.uv, _PaintUV, h, _BrushRotate)) {
-					float2 uv = CalcBrushUV(i.uv, _PaintUV, h, _BrushRotate);
+					half2 uv = CalcBrushUV(i.uv, _PaintUV, h, _BrushRotate);
 					brushColor = SampleTexture(_Brush, uv.xy);
 
 					return INK_PAINTER_COLOR_BLEND(base, brushColor, _ControlColor);
@@ -69,7 +74,7 @@ Shader "Es/InkPainter/PaintMain"{
 				return base;
 			}
 
-			ENDCG
+			ENDHLSL
 		}
 	}
 }

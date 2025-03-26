@@ -10,54 +10,56 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Opaque" "RenderPipeline" = "UniversalPipeline"}
 
 		Pass
 		{
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#include "UnityCG.cginc"
+			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
-			struct appdata
+			struct Attributes
 			{
-				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
+				half4 vertex : POSITION;
+				half2 uv : TEXCOORD0;
 			};
 
-			struct v2f
+			struct Varyings
 			{
-				float2 uv : TEXCOORD0;
-				float4 vertex : SV_POSITION;
+				half2 uv : TEXCOORD0;
+				half4 vertex : SV_POSITION;
 			};
 
 			sampler2D _MainTex;
 			sampler2D _ColorMap;
 			sampler2D _BaseColor;
-			float4 _MainTex_ST;
-			float _Alpha;
-			float _Border;
+			CBUFFER_START(UnityPerMaterial)
+			half4 _MainTex_ST;
+			half _Alpha;
+			half _Border;
+			CBUFFER_END	
 
-			v2f vert (appdata v)
+			Varyings vert (Attributes v)
 			{
-				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
+				Varyings o;
+				o.vertex = TransformObjectToHClip(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				return o;
 			}
 
-			float4 frag (v2f i) : SV_Target
+			half4 frag (Varyings i) : SV_Target
 			{
-				float4 mainCol = tex2D(_MainTex, i.uv);
+				half4 mainCol = tex2D(_MainTex, i.uv);
 
 				if (mainCol.a > _Border) {
-					return lerp(tex2D(_BaseColor, i.uv), float4(mainCol.rgb, 1), _Alpha);
+					return lerp(tex2D(_BaseColor, i.uv), half4(mainCol.rgb, 1), _Alpha);
 				}
 
 				return tex2D(_ColorMap, i.uv);
 			}
-			ENDCG
+			ENDHLSL
 		}
 	}
 }

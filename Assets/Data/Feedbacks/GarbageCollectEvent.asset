@@ -28,4 +28,4 @@ MonoBehaviour:
       type: {class: EffectInstantiate, ns: FeedbacksEditor, asm: Assembly-CSharp}
       data:
         Enabled: 1
-        Prefab: {fileID: 4456387754976095582, guid: 28a87506b4ac1fa429b8dfa837eb9b30, type: 3}
+        Prefab: {fileID: 4456387754976095582, guid: 2f9366ee001fb1b4ba400a3d51576d97, type: 3}

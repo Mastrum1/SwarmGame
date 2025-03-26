@@ -47,7 +47,7 @@ namespace Garbage
         /// </summary>
         public void AssignGarbages()
         {
-            _totalGarbages = FindObjectsOfType<Garbage>();
+            _totalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None);
         }
     }
 }

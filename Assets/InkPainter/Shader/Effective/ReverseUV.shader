@@ -39,8 +39,11 @@ Shader "Es/Effective/ReverseUV"
 			}
 
 			sampler2D _MainTex;
+			CBUFFER_START(UnityPerMaterial)
+
 			float _ReverseX;
 			float _ReverseY;
+			CBUFFER_END	
 
 			fixed4 frag (v2f i) : SV_Target
 			{

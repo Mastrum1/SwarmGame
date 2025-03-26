@@ -24,16 +24,29 @@ Shader "Es/InkPainter/PaintHeight"{
 	}
 
 	SubShader{
-		CGINCLUDE
+		
+		Tags {"RenderPipeline" = "UniversalPipeline" }
 
+
+			
+
+		
+
+		Pass{
+			HLSLPROGRAM
+#pragma multi_compile INK_PAINTER_HEIGHT_BLEND_USE_BRUSH INK_PAINTER_HEIGHT_BLEND_ADD INK_PAINTER_HEIGHT_BLEND_SUB INK_PAINTER_HEIGHT_BLEND_MIN INK_PAINTER_HEIGHT_BLEND_MAX INK_PAINTER_HEIGHT_BLEND_COLOR_RGB_HEIGHT_A
+#pragma vertex vert
+#pragma fragment frag
+
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #include "../Lib/InkPainterFoundation.cginc"
 
-			struct app_data {
+			struct Attributes {
 				float4 vertex:POSITION;
 				float4 uv:TEXCOORD0;
 			};
 
-			struct v2f {
+			struct Varyings {
 				float4 screen:SV_POSITION;
 				float4 uv:TEXCOORD0;
 			};
@@ -41,37 +54,32 @@ Shader "Es/InkPainter/PaintHeight"{
 			sampler2D _MainTex;
 			sampler2D _Brush;
 			sampler2D _BrushHeight;
+			CBUFFER_START(UnityPerMaterial)
 			float4 _PaintUV;
 			float _BrushScale;
 			float _BrushRotate;
 			float _HeightBlend;
 			float4 _Color;
-		ENDCG
+			CBUFFER_END	
 
-		Pass{
-			CGPROGRAM
-#pragma multi_compile INK_PAINTER_HEIGHT_BLEND_USE_BRUSH INK_PAINTER_HEIGHT_BLEND_ADD INK_PAINTER_HEIGHT_BLEND_SUB INK_PAINTER_HEIGHT_BLEND_MIN INK_PAINTER_HEIGHT_BLEND_MAX INK_PAINTER_HEIGHT_BLEND_COLOR_RGB_HEIGHT_A
-#pragma vertex vert
-#pragma fragment frag
-
-			v2f vert(app_data i) {
-				v2f o;
-				o.screen = UnityObjectToClipPos(i.vertex);
+			Varyings vert(Attributes i) {
+				Varyings o;
+				o.screen = TransformObjectToHClip(i.vertex.xyz);
 				o.uv = i.uv;
 				return o;
 			}
 
-			float4 frag(v2f i) : SV_TARGET {
-				float h = _BrushScale;
-				float4 base = SampleTexture(_MainTex, i.uv.xy);
+			half4 frag(Varyings i) : SV_TARGET {
+				half h = _BrushScale;
+				half4 base = SampleTexture(_MainTex, i.uv.xy);
 
-				if (IsPaintRange(i.uv, _PaintUV, h, _BrushRotate)) {
-					float2 uv = CalcBrushUV(i.uv, _PaintUV, h, _BrushRotate);
+				if (IsPaintRange(i.uv.xy, _PaintUV.xy, h, _BrushRotate)) {
+					half2 uv = CalcBrushUV(i.uv.xy, _PaintUV.xy, h, _BrushRotate);
 					float4 brushColor = SampleTexture(_Brush, uv.xy);
 
 					if (brushColor.a > 0) {
-						float2 heightUV = CalcBrushUV(i.uv, _PaintUV, h, _BrushRotate);
-						float4 height = SampleTexture(_BrushHeight, heightUV.xy);
+						half2 heightUV = CalcBrushUV(i.uv.xy, _PaintUV.xy, h, _BrushRotate);
+						half4 height = SampleTexture(_BrushHeight, heightUV.xy);
 #if INK_PAINTER_HEIGHT_BLEND_COLOR_RGB_HEIGHT_A
 						height.a = 0.299 * height.r + 0.587 * height.g + 0.114 * height.b;
 						height.rgb = _Color.rgb;
@@ -84,7 +92,7 @@ Shader "Es/InkPainter/PaintHeight"{
 				return base;
 			}
 
-			ENDCG
+			ENDHLSL
 		}
 	}
 }

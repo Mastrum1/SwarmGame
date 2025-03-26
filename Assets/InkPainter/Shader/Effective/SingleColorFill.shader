@@ -25,8 +25,10 @@
 			{
 				float4 vertex : SV_POSITION;
 			};
+			CBUFFER_START(UnityPerMaterial)
 
 			float4 _Color;
+			CBUFFER_END	
 
 			v2f vert(appdata v)
 			{

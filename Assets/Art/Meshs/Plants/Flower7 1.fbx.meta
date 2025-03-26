@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 5015b90766e539e42a1ffcd01ede5a59
+guid: bd4f5deee73b3ea4a83ce34063fd306f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: 903e1c0227f1ea1439490126d182e221, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: aefddd756aac95a4897746ad765a0469, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

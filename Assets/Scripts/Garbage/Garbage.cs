@@ -1,3 +1,4 @@
+using FeedbacksEditor;
 using UnityEngine;
 
 namespace Garbage
@@ -8,10 +9,11 @@ namespace Garbage
     public class Garbage : MonoBehaviour
     {
         [field:SerializeField] public int EntitiesToAdd { get; private set; }
+        [SerializeField] private GameEvent _feedback;
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out GarbageCleaner cleaner) == false) return;
-
+            GameEventsManager.PlayEvent(_feedback, gameObject);
             cleaner.Clean(this);
         }
     }

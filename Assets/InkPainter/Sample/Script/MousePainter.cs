@@ -66,7 +66,7 @@ namespace Es.InkPainter.Sample
 		{
 			if(GUILayout.Button("Reset"))
 			{
-				foreach(var canvas in FindObjectsOfType<InkCanvas>())
+				foreach(var canvas in Object.FindObjectsByType<InkCanvas>(FindObjectsSortMode.None))
 					canvas.ResetPaint();
 			}
 		}

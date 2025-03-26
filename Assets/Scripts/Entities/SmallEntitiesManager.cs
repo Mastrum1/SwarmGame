@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,19 @@ public class SmallEntitiesManager : MonoBehaviour
     [field:SerializeField] public List<SmallEntity> Entities {get; private set;}
     [SerializeField] private SmallEntity _entityPrefab;
 
-    public void AddEntities(int garbageEntitiesToAdd)
+    private void Start()
     {
-        for (int i = 0; i < garbageEntitiesToAdd; i++)
+        MainGame.Instance.OnGarbageCleaned += AddEntities;
+    }
+
+    private void OnDisable()
+    {
+        MainGame.Instance.OnGarbageCleaned -= AddEntities;
+    }
+
+    private void AddEntities(Garbage.Garbage garbage)
+    {
+        for (int i = 0; i < garbage.EntitiesToAdd; i++)
         {
             SpawnEntity();
         }

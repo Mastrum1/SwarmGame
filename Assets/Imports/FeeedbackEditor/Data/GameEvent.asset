@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94c7b0b9b104aa382d2be7cbe15745c, type: 3}
+  m_Name: GameEvent
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 5043051165980033039
+  - rid: 5043051165980033037
+  - rid: 5043051165980033032
+  - rid: 5043051165980033029
+  - rid: 3040838116527046656
+  - rid: 5043051165980033040
+  - rid: 5043051165980033030
+  - rid: 5043051165980033038
+  - rid: 5043051165980033042
+  - rid: 1339871568650305551
+  - rid: 5043051165980033031
+  - rid: 3040838116527046657
+  - rid: 5043051165980033041
+  references:
+    version: 2
+    RefIds:
+    - rid: 1339871568650305551
+      type: {class: EffectSound, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Clips:
+        - {fileID: 8300000, guid: ce1a4f0ffc7144b40bd1fcb9c359b9b6, type: 3}
+    - rid: 3040838116527046656
+      type: {class: EffectHaptic, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        HapticParams:
+          LowFrequency: 0.1
+          HighFrequency: 0.2
+          Time: 0.1
+    - rid: 3040838116527046657
+      type: {class: EffectHaptic, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        HapticParams:
+          LowFrequency: 0.1
+          HighFrequency: 0.2
+          Time: 0.1
+    - rid: 5043051165980033029
+      type: {class: EffectInstantiate, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Prefab: {fileID: 4456387754976095582, guid: cff1a37f191a6524ab9506058eaed72b,
+          type: 3}
+    - rid: 5043051165980033030
+      type: {class: EffectWait, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Timer: 0.2
+    - rid: 5043051165980033031
+      type: {class: EffectInstantiate, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Prefab: {fileID: 4456387754976095582, guid: cff1a37f191a6524ab9506058eaed72b,
+          type: 3}
+    - rid: 5043051165980033032
+      type: {class: EffectFreezeFrame, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Timer: 0.05
+    - rid: 5043051165980033037
+      type: {class: EffectShakeCamera, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ScreenShakeParams:
+          Strength: 0.4
+          Duration: 0.1
+          Curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+    - rid: 5043051165980033038
+      type: {class: EffectShakeCamera, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ScreenShakeParams:
+          Strength: 0.4
+          Duration: 0.1
+          Curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 34
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+    - rid: 5043051165980033039
+      type: {class: EffectSound, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Clips:
+        - {fileID: 8300000, guid: 22b59b58da01ac741a3023c6ae6516f6, type: 3}
+    - rid: 5043051165980033040
+      type: {class: EffectSlowMotion, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        TimeScaleParams:
+          Duration: 0.3
+          Curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: -0.3341448
+              outSlope: -0.3341448
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0.58610004
+            - serializedVersion: 3
+              time: 0.016089277
+              value: 0.6340921
+              inSlope: -0.5189006
+              outSlope: -0.5189006
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0.10170263
+            - serializedVersion: 3
+              time: 0.99399483
+              value: 1
+              inSlope: 1.0768957
+              outSlope: 1.0768957
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0.30488822
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+    - rid: 5043051165980033041
+      type: {class: EffectSlowMotion, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        TimeScaleParams:
+          Duration: 0.06
+          Curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 0.5
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0.33333334
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+    - rid: 5043051165980033042
+      type: {class: EffectFreezeFrame, ns: FeedbacksEditor, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Timer: 0.05

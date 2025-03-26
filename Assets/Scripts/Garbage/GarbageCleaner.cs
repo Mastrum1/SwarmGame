@@ -9,7 +9,7 @@ namespace Garbage
     {
         public void Clean(Garbage garbage)
         {
-            MainGame.Instance.EntitiesManager.AddEntities(garbage.EntitiesToAdd);
+            MainGame.Instance.OnGarbageCleaned(garbage);
             Destroy(garbage.gameObject);
         }
     }

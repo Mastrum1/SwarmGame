@@ -2,7 +2,7 @@
 
 namespace Es.InkPainter.Sample
 {
-	[RequireComponent(typeof(Collider), typeof(MeshRenderer))]
+	[RequireComponent(typeof(Collider))]
 	public class CollisionPainter : MonoBehaviour
 	{
 		[SerializeField]
@@ -12,11 +12,6 @@ namespace Es.InkPainter.Sample
 		private int wait = 3;
 
 		private int waitCount;
-
-		public void Awake()
-		{
-			GetComponent<MeshRenderer>().material.color = brush.Color;
-		}
 
 		public void FixedUpdate()
 		{
@@ -31,8 +26,7 @@ namespace Es.InkPainter.Sample
 
 			foreach(var p in collision.contacts)
 			{
-				var canvas = p.otherCollider.GetComponent<InkCanvas>();
-				if(canvas != null)
+				if(p.otherCollider.TryGetComponent<InkCanvas>(out var canvas))
 					canvas.Paint(brush, p.point);
 			}
 		}

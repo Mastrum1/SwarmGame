@@ -1,5 +1,11 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.Mathematics;
+using UnityEditor.Callbacks;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Garbage
 {
@@ -8,23 +14,35 @@ namespace Garbage
     /// </summary>
     public class TotalCleaningManager : MonoBehaviour
     {
+        public GameObject GarbagePrefab;
+        public Transform Parent;
         public Action<float> OnPercentageChanged;
+        public int GarbageCount;
+        public float SphereDistance;
         public float Percentage => (float)_cleanedGarbage / _totalGarbage;
-        
-        [SerializeField] private Garbage[] _totalGarbages;
+
+        [SerializeField] private List<Garbage> _totalGarbages = new();
 
         private int _totalGarbage;
         private int _cleanedGarbage;
 
-        private void Start()
+        private void Awake()
         {
-            AssignGarbages();
-            foreach (var garbage in _totalGarbages)
+            //AssignGarbages();
+            for (int i = 0; i < GarbageCount; i++)
             {
-                _totalGarbage += garbage.EntitiesToAdd;
+                Garbage g = Instantiate(GarbagePrefab, Random.onUnitSphere * SphereDistance, Quaternion.identity, Parent).GetComponent<Garbage>();
+                _totalGarbages.Add(g);
+
             }
 
+        }
+
+        private void Start()
+        {
+            
             MainGame.Instance.OnGarbageCleaned += OnGarbageCleaned;
+
         }
 
         private void OnDisable()
@@ -48,7 +66,7 @@ namespace Garbage
         /// </summary>
         public void AssignGarbages()
         {
-            _totalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None);
+            _totalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None).ToList();
         }
     }
 }

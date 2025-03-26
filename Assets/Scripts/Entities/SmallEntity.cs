@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class SmallEntity : MonoBehaviour
 {
+    public Vector3 Direction { get; private set; }
+    
     [SerializeField] private float _angleOffset;
     [SerializeField] private float _minSpeed;
     [SerializeField] private float _maxSpeed;
@@ -21,11 +23,12 @@ public class SmallEntity : MonoBehaviour
     private float _timerCoolDown;
     private float _speed;
     private Vector3 _offset;
-    private Transform _player;
     private float _lerp;
-    
     private int _directionInverted;
-
+    private Transform _player;
+    private Vector3 _planetPosition;
+    private Vector3 _direction;
+    
     private void Start()
     {
         _player = MainGame.Instance.Player.transform;
@@ -35,14 +38,32 @@ public class SmallEntity : MonoBehaviour
         _speed = Random.Range(_minSpeed, _maxSpeed);
         _radius = Random.Range(_minRadius, _maxRadius);
         _lerp = Random.Range(_minLerp, _maxLerp);
+        _planetPosition = MainGame.Instance.Planet.position;
     }
 
     public void FixedUpdate()
-    { 
+    {
+        Move();
+        
+        Rotate();
+    }
+
+    private void Move()
+    {
         var direction = new Vector3(Mathf.Cos(_currentAngle), 0, Mathf.Sin(_currentAngle));
         _currentAngle += _angleOffset * _directionInverted * _speed * Time.deltaTime;
         direction = (_player.right * direction.x + _player.forward * direction.z).normalized;
         var newPosition = _player.position + _offset + direction * _radius + _player.up * _yOffset;
-        transform.position = Vector3.Lerp(transform.position, newPosition, _lerp);
+        _direction = newPosition - transform.position;
+        var targetPosition = Vector3.Lerp(transform.position, newPosition, _lerp);
+        Direction = targetPosition - transform.position;
+        transform.position = targetPosition;
+    }
+
+    private void Rotate()
+    {
+        Vector3 direction = (_planetPosition - transform.position).normalized;
+        Quaternion rotation = Quaternion.FromToRotation(-transform.up, direction) * transform.rotation;
+        transform.rotation = rotation;
     }
 }

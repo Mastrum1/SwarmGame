@@ -98,15 +98,14 @@ public abstract class Movement : MonoBehaviour
     
     void CheckGround()
     {        
-       if(Physics.CheckSphere(groundCollider.position, moveData.groundColSize, GroundLayerMask))
-        {
+       if(Physics.CheckSphere(groundCollider.position, moveData.groundColSize, GroundLayerMask)) {
             Physics.Raycast(groundCollider.position, -transform.up, out RaycastHit hit, 5f);
             groundData.grounded = true;
             groundData.normal = hit.normal;
             return;
-        }
+       }
 
-        groundData.grounded = false;
-        groundData.normal = -gravityDirection;
+       groundData.grounded = false;
+       groundData.normal = -gravityDirection;
     }
 }

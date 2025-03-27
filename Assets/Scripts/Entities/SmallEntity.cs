@@ -62,8 +62,9 @@ public class SmallEntity : MonoBehaviour
 
     private void Rotate()
     {
-        Vector3 direction = (_planetPosition - transform.position).normalized;
-        Quaternion rotation = Quaternion.FromToRotation(-transform.up, direction) * transform.rotation;
+        Quaternion rotation = Quaternion.LookRotation(_direction, -_player.transform.up);
         transform.rotation = rotation;
+
+
     }
 }

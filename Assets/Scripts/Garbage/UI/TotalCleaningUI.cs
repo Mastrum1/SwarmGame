@@ -30,6 +30,7 @@ namespace Garbage.UI
         {
             UpdateTotal(cleaningManager.CurrentEntities);
             UpdatePercentage(cleaningManager.CleanedPercentage);
+
         }
 
         private void UpdatePercentage(float percentage)

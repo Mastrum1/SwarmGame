@@ -3011,6 +3011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EntitiesToAdd>k__BackingField: 5
+  _feedback: {fileID: 0}
 --- !u!23 &1894433775
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3377,7 +3378,8 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5999124316492385467, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
@@ -3653,6 +3655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EntitiesToAdd>k__BackingField: 5
+  _feedback: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

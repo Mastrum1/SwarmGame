@@ -1,9 +1,6 @@
-using Garbage;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static GameObjectsActivator;
 
 public class GameObjectsActivator : MonoBehaviour
 {

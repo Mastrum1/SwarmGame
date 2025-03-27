@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AntoineFoucault.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -34,7 +35,7 @@ namespace Garbage
             var radius = planet.radius * planet.transform.localScale.y;
             for (int i = 0; i < _garbageCount; i++)
             {
-                CreateGarbage(_garbagePrefabList[Random.Range(0, _garbagePrefabList.Length)].gameObject, UnityEngine.Random.onUnitSphere * radius);
+                CreateGarbage(_garbagePrefabList.GetRandomItem().gameObject, UnityEngine.Random.onUnitSphere * radius);
             }
 
             MainGame.Instance.OnGarbageCleaned += OnGarbageCleaned;

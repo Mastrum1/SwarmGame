@@ -3,6 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+    
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody rb;

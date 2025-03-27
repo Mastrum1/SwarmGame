@@ -9,14 +9,15 @@ public class PlayerVisual : MonoBehaviour
     [SerializeField] private Rigidbody _playerRigidbody;
 
     [SerializeField] private Transform _playerVisual;
+    [SerializeField] private Transform _helper;
 
     [Header("Position")]
-    [SerializeField, Range(0,1)] private float _followLerp;
-    
+    [SerializeField, Range(0, 1)] private float _followLerp;
+
     [Header("Rotation")]
     [SerializeField] private bool _isOrientationInverted;
     [SerializeField] private float _lookAtLerp;
-    
+
     [Header("Animations")]
     [SerializeField] private string _isWalkingBool;
     [SerializeField] private Animator _animator;
@@ -35,34 +36,19 @@ public class PlayerVisual : MonoBehaviour
 
     private void RotateDirection()
     {
-        // Get the player's horizontal movement direction.
         Vector3 moveDirection = _playerRigidbody.linearVelocity;
-        moveDirection.y = 0f;
-
-        bool isWalking = moveDirection.sqrMagnitude >= 0.1f;
-        if (isWalking)
-        {
-            // Normalize for consistency.
-            _lastDirection = moveDirection.normalized;
-        }
+        moveDirection.y = 0;
+        var isWalking = moveDirection.sqrMagnitude >= 0.1f;
+        if (isWalking) _lastDirection = moveDirection;
         _animator.SetBool(_isWalkingBool, isWalking);
-
-        // If the player is not moving significantly, skip rotation.
-        if (!isWalking)
-            return;
-
-        // Apply orientation inversion if needed.
         int orientation = _isOrientationInverted ? -1 : 1;
-        Vector3 desiredDirection = _lastDirection * orientation;
 
-        // Ensure the desired direction is valid.
-        if (desiredDirection == Vector3.zero)
-            return;
-
-        // Compute the target rotation.
-        Quaternion targetRotation = Quaternion.LookRotation(desiredDirection, _playerRigidbody.transform.up);
-
-        // Smoothly interpolate to the target rotation.
-        _playerVisual.rotation = Quaternion.Lerp(_playerVisual.rotation, targetRotation, _lookAtLerp * Time.deltaTime);
+        Vector3 point = _lastDirection * orientation - _playerRigidbody.position;
+        Vector3 direction = _playerRigidbody.position - point;
+        if (direction.magnitude < 0.1f) return;
+        _playerVisual.up = -_playerRigidbody.transform.up;
+        Quaternion toRotation = Quaternion.LookRotation(direction, _playerVisual.up);
+        _playerVisual.rotation = Quaternion.Lerp(_playerVisual.rotation, toRotation, _lookAtLerp * Time.deltaTime);
+        
     }
 }

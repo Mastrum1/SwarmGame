@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private RayData _groundData;
     private Vector3 _gravityDirection;
 
+    private int _jumpState = 0;
+
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
@@ -47,6 +50,16 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _jumpState = (_jumpState + 1) % 2;
+            Cursor.visible = _jumpState == 1;
+            EditorGUIUtility.SetWantsMouseJumping(_jumpState);
+        }
+       
+        
+        
+
         _gravityDirection = (planetPosition.position - transform.position).normalized;
         rb.maxLinearVelocity = speed * 2.3f;
     }

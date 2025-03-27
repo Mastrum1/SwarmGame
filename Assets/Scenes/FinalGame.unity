@@ -578,6 +578,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 227918201666605179, guid: a4e6e0dc6cf0a0a46b849c532d287f09, type: 3}
+      propertyPath: m_Volume
+      value: 0.578
+      objectReference: {fileID: 0}
+    - target: {fileID: 227918201666605179, guid: a4e6e0dc6cf0a0a46b849c532d287f09, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 65e67faea6bfa524fa67459a14929d32, type: 3}
+    - target: {fileID: 227918201666605179, guid: a4e6e0dc6cf0a0a46b849c532d287f09, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 65e67faea6bfa524fa67459a14929d32, type: 3}
     - target: {fileID: 5040695660683796477, guid: a4e6e0dc6cf0a0a46b849c532d287f09, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -621,6 +633,10 @@ PrefabInstance:
     - target: {fileID: 8908214978255538054, guid: a4e6e0dc6cf0a0a46b849c532d287f09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164719010314273473, guid: a4e6e0dc6cf0a0a46b849c532d287f09, type: 3}
+      propertyPath: m_Volume
+      value: 0.543
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -902,6 +918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4111030757402653889, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: _lookAtLerp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5515042666603800646, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99
@@ -954,6 +974,38 @@ PrefabInstance:
       propertyPath: planetPosition
       value: 
       objectReference: {fileID: 115537256}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].time
+      value: 1.4521637
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].value
+      value: 0.32307434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].inSlope
+      value: 0.2563558
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].inSlope
+      value: -0.85844874
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].inSlope
+      value: -1.342377
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[1].outSlope
+      value: 0.2563558
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[2].outSlope
+      value: -0.85844874
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: mouseSensitivityCurve.m_Curve.Array.data[3].outSlope
+      value: -1.342377
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

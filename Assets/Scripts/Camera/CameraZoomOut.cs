@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Camera
 {
     public class CameraZoomOut : MonoBehaviour
     {

@@ -24,11 +24,6 @@ public class PlayerVisual : MonoBehaviour
 
     private Vector3 _lastDirection;
 
-    private void Start()
-    {
-        _playerVisual.up = -_playerRigidbody.transform.up;
-    }
-
     private void Update()
     {
         _playerVisual.transform.position = Vector3.Lerp(_playerVisual.transform.position, _playerRigidbody.transform.position, _followLerp);

@@ -1711,10 +1711,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2868734842228639250, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
-      propertyPath: _endZoom
-      value: -24
-      objectReference: {fileID: 0}
     - target: {fileID: 5515042666603800646, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99

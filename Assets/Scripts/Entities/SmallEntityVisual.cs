@@ -10,7 +10,7 @@ namespace Entities
 
         private void Start()
         {
-            transform.SetParent(null);
+            //transform.SetParent(null);
         }
 
         private void FixedUpdate()

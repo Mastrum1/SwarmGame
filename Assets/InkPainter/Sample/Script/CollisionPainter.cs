@@ -9,31 +9,32 @@ namespace Es.InkPainter.Sample
 		private Brush brush = null;
 
 		[SerializeField]
-		private int wait = 3;
-
-		private int waitCount;
+		private int wait = 10;
+		
+		private InkCanvas _inkCanvas;
+		private int _waitCount;
 
 		public void Awake()
 		{
 			GetComponent<MeshRenderer>().material.color = brush.Color;
+			_inkCanvas = FindFirstObjectByType<InkCanvas>();
 		}
 
 		public void FixedUpdate()
 		{
-			++waitCount;
+			++_waitCount;
 		}
 
 		public void OnCollisionStay(Collision collision)
 		{
-			if(waitCount < wait)
+			if(_waitCount < wait)
 				return;
-			waitCount = 0;
+			_waitCount = 0;
 
 			foreach(var p in collision.contacts)
 			{
-				var canvas = p.otherCollider.GetComponent<InkCanvas>();
-				if(canvas != null)
-					canvas.Paint(brush, p.point);
+				if(_inkCanvas != null)
+					_inkCanvas.Paint(brush, p.point);
 			}
 		}
 	}

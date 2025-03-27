@@ -11,13 +11,13 @@ namespace Scripts.Camera
         private void Start()
         {
             MainGame.Instance.OnGarbageCleaned += UpdateZoom;
-            _camera.localPosition = new Vector3(_camera.localPosition.x, _initialZoom, _camera.localPosition.z);
+            _camera.localPosition = new Vector3(_initialZoom-2, _initialZoom, _camera.localPosition.z);
         }
 
         private void UpdateZoom(Garbage.Garbage garbage)
         {
             var zoomLevel = Mathf.Lerp(_initialZoom, _endZoom, MainGame.Instance.CleaningManager.Percentage);
-            _camera.localPosition = new Vector3(_camera.localPosition.x, zoomLevel, _camera.localPosition.z);
+            _camera.localPosition = new Vector3(zoomLevel-2, zoomLevel, _camera.localPosition.z);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Garbage
     {
         public Action<TotalCleaningManager> OnPercentageChanged;
         public float CleanedPercentage => 1 - (float)_notCleanedGarbage / GarbageCount;
-
+        public int TotalEntities { get; private set; }
 
         public Transform Parent;
         public GameObject GarbagePrefab;
@@ -51,6 +51,7 @@ namespace Garbage
         private void OnGarbageCleaned(Garbage garbage)
         {
             _totalGarbages.Remove(garbage);
+            TotalEntities += garbage.EntitiesToAdd;
             OnPercentageChanged?.Invoke(this);
         }
 

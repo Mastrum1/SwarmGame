@@ -151,7 +151,12 @@ namespace Es.InkPainter
 			#endregion Constractor
 		}
 
-		private static Material _paintMainMaterial = null;
+		[SerializeField]
+		private float _renderTextureEventInterval = 0.1f;
+		private float _renderTextureEventTimeCount = 0f;
+		private bool _updateRenderTextureEvent = false;
+
+        private static Material _paintMainMaterial = null;
 		private static Material _paintNormalMaterial = null;
 		private static Material _paintHeightMaterial = null;
 		private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
@@ -303,14 +308,24 @@ namespace Es.InkPainter
 			}
 		}
 
-		#endregion UnityEventMethod
+        #endregion UnityEventMethod
 
-		#region PrivateMethod
+        #region PrivateMethod
 
-		/// <summary>
-		/// Cach data from the mesh.
-		/// </summary>
-		private void MeshDataCache()
+        private void Update()
+        {
+            _renderTextureEventTimeCount += Time.deltaTime;
+            if (_renderTextureEventTimeCount >= _renderTextureEventInterval)
+			{
+				_renderTextureEventTimeCount = 0f;
+                _updateRenderTextureEvent = true;
+            }
+		}
+
+        /// <summary>
+        /// Cach data from the mesh.
+        /// </summary>
+        private void MeshDataCache()
 		{
 			var meshFilter = GetComponent<MeshFilter>();
 			var skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
@@ -710,7 +725,12 @@ namespace Es.InkPainter
                     Graphics.Blit(p.PaintMainTexture, mainPaintTextureBuffer, _paintMainMaterial);
                     Graphics.Blit(mainPaintTextureBuffer, p.PaintMainTexture);
                     p.material.SetTexture(BaseMap, p.PaintMainTexture);
-                    OnRenderTextureUpdated?.Invoke(p, p.PaintMainTexture);
+
+					if(_updateRenderTextureEvent)
+					{
+						OnRenderTextureUpdated?.Invoke(p, p.PaintMainTexture);
+                        _updateRenderTextureEvent = false;
+                    }
                     RenderTexture.ReleaseTemporary(mainPaintTextureBuffer);
                 }
 

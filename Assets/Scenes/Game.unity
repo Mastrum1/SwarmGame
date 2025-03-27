@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cc1b9412eea6e4a8798f4b2f88b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderTextureEventInterval: 0.1
   paintSet:
   - mainTextureName: _MainTex
     normalTextureName: _BumpMap
@@ -12310,7 +12311,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 684590487}
-  m_VersionIndex: 4
+  m_VersionIndex: 13
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

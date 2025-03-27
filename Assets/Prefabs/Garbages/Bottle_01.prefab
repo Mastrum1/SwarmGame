@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4713149013051506703}
   - component: {fileID: 6874218104887849076}
   - component: {fileID: -8517779167471109648}
+  - component: {fileID: -3846323675821130964}
   m_Layer: 0
   m_Name: Bottle_01
   m_TagString: Untagged
@@ -72,6 +73,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3846323675821130964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487308410749650647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234ab315c0bc49b194212b574a2558e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factory: {fileID: 11400000, guid: 972881d0036df5e44bdb813be821c471, type: 2}
 --- !u!1001 &2016129356630548494
 PrefabInstance:
   m_ObjectHideFlags: 0

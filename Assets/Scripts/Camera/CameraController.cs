@@ -4,6 +4,12 @@ namespace Scripts
 {
     public class CameraController : MonoBehaviour
     {
+        public float Speed
+        {
+            get => speed;
+            set => speed = value;
+        }
+        
         [Header("Target")]
         [SerializeField] private GameObject target;
         [SerializeField] private Transform anchorPosition;

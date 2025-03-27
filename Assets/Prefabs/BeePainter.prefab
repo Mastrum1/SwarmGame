@@ -150,7 +150,7 @@ MonoBehaviour:
     rotateAngle: 0
     brushNormalBlend: 0.1
     brushHeightBlend: 0
-    brushColor: {r: 0.10637947, g: 0.3501287, b: 0.8415094, a: 0.16862746}
+    brushColor: {r: 1, g: 0.050980393, b: 0, a: 0.25490198}
     colorBlendType: 0
     normalBlendType: 0
     heightBlendType: 0

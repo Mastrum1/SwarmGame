@@ -21,10 +21,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.27
+    m_Value: 0.15
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.67
+    m_Value: 1
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.35232097, y: 0.4437753, z: 1, w: -0.00000020906185}
+    m_Value: {x: 1, y: 0.93360245, z: 0.48060298, w: -0.1483772}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.88989586, z: 0.52289605, w: 0.4911801}
+    m_Value: {x: 0.5542714, y: 0.69201845, z: 1, w: 0.4911801}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.34985775, y: 0.4234329, z: 1, w: -0.10583469}
+    m_Value: {x: 0.34985775, y: 0.4234329, z: 1, w: -0.031646334}
 --- !u!114 &-4579295430103479733
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -137,7 +137,7 @@ MonoBehaviour:
     m_Value: 60
   redOutBlueIn:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: -83
   greenOutRedIn:
     m_OverrideState: 0
     m_Value: 0

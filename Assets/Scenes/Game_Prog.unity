@@ -1650,10 +1650,6 @@ PrefabInstance:
       propertyPath: <Player>k__BackingField
       value: 
       objectReference: {fileID: 702655924}
-    - target: {fileID: 6957092885163347360, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
-      propertyPath: '_components.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1225118274}
     - target: {fileID: 9122681056311143781, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: m_Name
       value: Managers

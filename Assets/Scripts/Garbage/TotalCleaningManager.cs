@@ -1,4 +1,10 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
+using System.Numerics;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Garbage
@@ -9,22 +15,32 @@ namespace Garbage
     public class TotalCleaningManager : MonoBehaviour
     {
         public Action<TotalCleaningManager> OnPercentageChanged;
-        public float Percentage => (float)_cleanedGarbage / _totalGarbage;
-        public int CleanedGarbage => _cleanedGarbage;
-        
-        [SerializeField] private Garbage[] _totalGarbages;
+        public float CleanedPercentage => CleanedGarbageCount / GarbageCount;
 
-        private int _totalGarbage;
-        private int _cleanedGarbage;
+
+        public Transform Parent;
+        public GameObject GarbagePrefab;
+        public int GarbageCount;
+        public float SpawnRadius;
+        [SerializeField] private List<Garbage> _totalGarbages = new();
+
+        public int NotCleanedGarbageCount => _totalGarbages.Count;
+        public int CleanedGarbageCount => GarbageCount - NotCleanedGarbageCount;
+
+        private void Awake()
+        {
+            AssignGarbages();
+            _totalGarbages.Add(
+                Instantiate(GarbagePrefab, 
+                            UnityEngine.Random.onUnitSphere * SpawnRadius, 
+                            UnityEngine.Quaternion.identity, 
+                            Parent)
+                .GetComponent<Garbage>()
+            );
+        }
 
         private void Start()
         {
-            AssignGarbages();
-            foreach (var garbage in _totalGarbages)
-            {
-                _totalGarbage += garbage.EntitiesToAdd;
-            }
-
             MainGame.Instance.OnGarbageCleaned += OnGarbageCleaned;
         }
 
@@ -35,7 +51,7 @@ namespace Garbage
 
         private void OnGarbageCleaned(Garbage garbage)
         {
-            _cleanedGarbage += garbage.EntitiesToAdd;
+            _totalGarbages.Remove(garbage);
             OnPercentageChanged?.Invoke(this);
         }
 
@@ -49,7 +65,7 @@ namespace Garbage
         /// </summary>
         public void AssignGarbages()
         {
-            _totalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None);
+            _totalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None).ToList();
         }
     }
 }

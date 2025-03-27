@@ -942,7 +942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1212273780
 Transform:
   m_ObjectHideFlags: 0
@@ -1314,6 +1314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cc1b9412eea6e4a8798f4b2f88b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderTextureEventInterval: 0.1
   paintSet:
   - mainTextureName: _MainTex
     normalTextureName: _BumpMap
@@ -1599,21 +1600,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
-      propertyPath: GarbageCount
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: '_totalGarbages.Array.data[0]'
       value: 
       objectReference: {fileID: 216362820}
-    - target: {fileID: 2419845825440097746, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
-      propertyPath: _amount
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419845825440097746, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
-      propertyPath: _emptyGarbagePrefab
-      value: 
-      objectReference: {fileID: 1605155959602321998, guid: a69927a1876891a479f815e9de8e6e76, type: 3}
     - target: {fileID: 3503981587838432193, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1653,10 +1642,6 @@ PrefabInstance:
     - target: {fileID: 3503981587838432193, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4308621981551528977, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Planet>k__BackingField

@@ -59,8 +59,6 @@ namespace Garbage.Plants
             var randomPlant = _factory.PlantPrefabs.GetRandomItem();
             var newPlant = Instantiate(randomPlant, origion.transform.position, rotation, transform);
             _plants.Add(newPlant);
-
-            
         }
     }
 }

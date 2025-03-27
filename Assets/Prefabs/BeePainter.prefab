@@ -146,11 +146,11 @@ MonoBehaviour:
     brushTexture: {fileID: 2800000, guid: f198c1c995ef08c478009b65a48af828, type: 3}
     brushNormalTexture: {fileID: 2800000, guid: 945b831b22eb06945bf77e00f16ff51a, type: 3}
     brushHeightTexture: {fileID: 0}
-    brushScale: 0.05
+    brushScale: 0.01
     rotateAngle: 0
     brushNormalBlend: 0.1
     brushHeightBlend: 0
-    brushColor: {r: 1, g: 0.050980393, b: 0, a: 0.25490198}
+    brushColor: {r: 1, g: 0, b: 0, a: 0.23921569}
     colorBlendType: 0
     normalBlendType: 0
     heightBlendType: 0

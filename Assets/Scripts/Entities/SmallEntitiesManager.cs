@@ -6,7 +6,6 @@ using UnityEngine;
 /// </summary>
 public class SmallEntitiesManager : MonoBehaviour
 {
-    [field:SerializeField] public List<SmallEntity> Entities {get; private set;}
     [SerializeField] private SmallEntity _entityPrefab;
     [SerializeField] private BeesManager _beesManager;
 

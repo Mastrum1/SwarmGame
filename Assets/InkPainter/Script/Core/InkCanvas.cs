@@ -151,8 +151,7 @@ namespace Es.InkPainter
 			#endregion Constractor
 		}
 
-		[SerializeField]
-		private float _renderTextureEventInterval = 0.1f;
+		public float RenderTextureEventInterval = 0.3f;
 		private float _renderTextureEventTimeCount = 0f;
 		private bool _updateRenderTextureEvent = false;
 
@@ -315,7 +314,7 @@ namespace Es.InkPainter
         private void Update()
         {
             _renderTextureEventTimeCount += Time.deltaTime;
-            if (_renderTextureEventTimeCount >= _renderTextureEventInterval)
+            if (_renderTextureEventTimeCount >= RenderTextureEventInterval)
 			{
 				_renderTextureEventTimeCount = 0f;
                 _updateRenderTextureEvent = true;

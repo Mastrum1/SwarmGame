@@ -15,8 +15,8 @@ namespace Entities
 
         private void FixedUpdate()
         {
-            transform.position = _entity.transform.position;
-            transform.forward = _entity.Direction;
+            //transform.position = _entity.transform.position;
+            //transform.forward = _entity.Direction;
         }
     }
 }

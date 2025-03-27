@@ -43,7 +43,7 @@ public class BeesManager : MonoBehaviour
             {
                 var randomBee = _ownedBees[UnityEngine.Random.Range(0, _ownerBeesCount)];
                 beePainter.transform.parent = randomBee.transform;
-                beePainter.transform.position = randomBee.transform.position;
+                beePainter.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             }
         }
     }

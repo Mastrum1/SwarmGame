@@ -825,6 +825,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58935b5a800de745a99ad3c1478936b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1892946857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6051220502453563864, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+  m_PrefabInstance: {fileID: 1036350961671929176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0a58c73833f2a469a5e94748732cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1950595128
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +984,10 @@ PrefabInstance:
       propertyPath: _parent
       value: 
       objectReference: {fileID: 1212273780}
+    - target: {fileID: 1621565599563830919, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+      propertyPath: _beesManager
+      value: 
+      objectReference: {fileID: 1892946857}
     - target: {fileID: 3503981587838432193, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1058,6 +1073,14 @@ PrefabInstance:
       propertyPath: _totalCleaningManager
       value: 
       objectReference: {fileID: 1515874001}
+    - target: {fileID: 4116455643036712909, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: _endSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116455643036712909, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: _initialSpeed
+      value: 15.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5515042666603800646, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99
@@ -1102,6 +1125,14 @@ PrefabInstance:
       propertyPath: speed
       value: 11.845
       objectReference: {fileID: 0}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: beesManager
+      value: 
+      objectReference: {fileID: 1892946857}
+    - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: dronePrefab
+      value: 
+      objectReference: {fileID: 488225113210335660, guid: 8a00c4e9a9062984a81eca05ec5ff085, type: 3}
     - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: groundCollider
       value: 

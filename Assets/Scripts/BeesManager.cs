@@ -55,11 +55,11 @@ public class BeesManager : MonoBehaviour
 
         public void ActivateBee()
         {
+            _ownerBeesCount++;
             var bee = Array.Find(_bees, b => !b.gameObject.activeSelf);
             if (bee == null) return;
             bee.gameObject.SetActive(true);
             _ownedBees[_ownerBeesCount] = bee;
-        
             if (!_randomisePainterParent && _useAutoPainters)
             {
                 var beePainter = Array.Find(_beePainters, b => !b.gameObject.activeSelf);
@@ -73,7 +73,6 @@ public class BeesManager : MonoBehaviour
                     beePainter.transform.SetParent(bee.transform);
                 }
             }
-            _ownerBeesCount++;
         }
     
         public void DeactivateBee(SmallEntity bee)

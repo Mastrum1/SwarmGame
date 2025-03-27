@@ -28,7 +28,7 @@ namespace Garbage.UI
 
         private void UpdateUI(TotalCleaningManager cleaningManager)
         {
-            UpdateTotal(cleaningManager.CleanedGarbageCount);
+            UpdateTotal(cleaningManager.CurrentEntities);
             UpdatePercentage(cleaningManager.CleanedPercentage);
         }
 

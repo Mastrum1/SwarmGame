@@ -46,6 +46,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Entities>k__BackingField: []
   _entityPrefab: {fileID: 3520204208245208116, guid: ee1bec585da347547a9e829b30504159, type: 3}
+--- !u!1 &4308621981551528977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8463421997762282903}
+  - component: {fileID: 2419845825440097746}
+  m_Layer: 0
+  m_Name: FloorSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8463421997762282903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308621981551528977}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1005.5375, y: 890, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3503981587838432193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2419845825440097746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308621981551528977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9405bb659d394e3893658c204e7ef264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emptyGarbagePrefab: {fileID: 1605155959602321998, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
+  _amount: 100
 --- !u!1 &4993079780278816513
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,8 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Parent: {fileID: 3913799378903054703}
   GarbagePrefab: {fileID: 5804429513923575463, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
-  GarbageCount: 0
-  SpawnRadius: 0
+  GarbageCount: 15
   _totalGarbages:
   - {fileID: 0}
 --- !u!1 &9122681056311143781
@@ -264,6 +309,7 @@ Transform:
   - {fileID: 2774606510864473402}
   - {fileID: 3913799378903054703}
   - {fileID: 4363742876509460794}
+  - {fileID: 8463421997762282903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6816234809765693569

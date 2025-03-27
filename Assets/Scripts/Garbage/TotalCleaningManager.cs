@@ -1,10 +1,6 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using System.Numerics;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Garbage
@@ -15,33 +11,37 @@ namespace Garbage
     public class TotalCleaningManager : MonoBehaviour
     {
         public Action<TotalCleaningManager> OnPercentageChanged;
-        public float CleanedPercentage => CleanedGarbageCount / GarbageCount;
+        public float CleanedPercentage => (float)CurrentEntities / _totalEntities;
+        public int CurrentEntities { get; private set; }
 
+        [SerializeField] private Transform _parent;
+        [SerializeField] private Garbage _garbagePrefab;
+        [SerializeField] private int _garbageCount;
 
-        public Transform Parent;
-        public GameObject GarbagePrefab;
-        public int GarbageCount;
-        public float SpawnRadius;
         [SerializeField] private List<Garbage> _totalGarbages = new();
 
-        public int NotCleanedGarbageCount => _totalGarbages.Count;
-        public int CleanedGarbageCount => GarbageCount - NotCleanedGarbageCount;
-
-        private void Awake()
-        {
-            AssignGarbages();
-            _totalGarbages.Add(
-                Instantiate(GarbagePrefab, 
-                            UnityEngine.Random.onUnitSphere * SpawnRadius, 
-                            UnityEngine.Quaternion.identity, 
-                            Parent)
-                .GetComponent<Garbage>()
-            );
-        }
+        private int _notCleanedGarbage => _totalGarbages.Count;
+        private int _totalEntities;
 
         private void Start()
         {
+            
+            AssignGarbages();
+            var planet = MainGame.Instance.Planet;
+            var radius = planet.radius * planet.transform.localScale.y;
+            for (int i = 0; i < _garbageCount; i++)
+            {
+                CreateGarbage(_garbagePrefab, UnityEngine.Random.onUnitSphere * radius);
+            }
+
             MainGame.Instance.OnGarbageCleaned += OnGarbageCleaned;
+        }
+
+        public void CreateGarbage(Garbage prefab, Vector3 position)
+        {
+            var garbage = Instantiate(prefab, position, UnityEngine.Quaternion.identity, _parent);
+            _totalGarbages.Add(garbage);
+            _totalEntities += garbage.EntitiesToAdd;
         }
 
         private void OnDisable()
@@ -52,6 +52,7 @@ namespace Garbage
         private void OnGarbageCleaned(Garbage garbage)
         {
             _totalGarbages.Remove(garbage);
+            CurrentEntities += garbage.EntitiesToAdd;
             OnPercentageChanged?.Invoke(this);
         }
 

@@ -8,6 +8,7 @@ public class SmallEntitiesManager : MonoBehaviour
 {
     [field:SerializeField] public List<SmallEntity> Entities {get; private set;}
     [SerializeField] private SmallEntity _entityPrefab;
+    [SerializeField] private BeesManager _beesManager;
 
     private void Start()
     {
@@ -29,6 +30,6 @@ public class SmallEntitiesManager : MonoBehaviour
 
     private void SpawnEntity()
     {
-        Instantiate(_entityPrefab, transform);
+        _beesManager.ActivateBee();
     }
 }

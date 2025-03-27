@@ -27,7 +27,11 @@ public class GameObjectsActivator : MonoBehaviour
             RefferenceTransform = transform;
         }
 
-        _coroutine = StartCoroutine(CheackGarbageVisability());
+    }
+    private void Start()
+    {
+        if (gameObject.activeInHierarchy)
+            _coroutine = StartCoroutine(CheackGarbageVisability());
     }
 
     private IEnumerator CheackGarbageVisability()
@@ -61,12 +65,14 @@ public class GameObjectsActivator : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopCoroutine(_coroutine);
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
     }
 
     public void RegisterVisibilityGroup(List<GameObject> objects, float distanceToActivate, float distanceToDeactivate)
     {
-        StopCoroutine(_coroutine);
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
 
 
         VisibilityGroup newGroup = new VisibilityGroup
@@ -77,24 +83,29 @@ public class GameObjectsActivator : MonoBehaviour
         };
         VisibilityGroups.Add(newGroup);
 
-        _coroutine = StartCoroutine(CheackGarbageVisability());
+        if (gameObject.activeInHierarchy)
+            _coroutine = StartCoroutine(CheackGarbageVisability());
     }
     public void RegisterVisibilityGroup(VisibilityGroup group)
     {
-        StopCoroutine(_coroutine);
+        if(_coroutine != null)
+            StopCoroutine(_coroutine);
 
         VisibilityGroups.Add(group);
 
-        _coroutine = StartCoroutine(CheackGarbageVisability());
+        if (gameObject.activeInHierarchy)
+            _coroutine = StartCoroutine(CheackGarbageVisability());
 
     }
     public void UnregisterVisibilityGroup(VisibilityGroup group)
     {
-        StopCoroutine(_coroutine);
+        if(_coroutine != null)
+            StopCoroutine(_coroutine);
 
         VisibilityGroups.Remove(group);
 
-        _coroutine = StartCoroutine(CheackGarbageVisability());
+        if(gameObject.activeInHierarchy)
+            _coroutine = StartCoroutine(CheackGarbageVisability());
 
     }
 

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityPrefab: {fileID: 3520204208245208116, guid: ee1bec585da347547a9e829b30504159, type: 3}
-  _beesManager: {fileID: 7395304231826350645}
+  _beesManager: {fileID: 7232692215909156219}
 --- !u!1 &4308621981551528977
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa229d0fc3849b2852c7d20fc93152b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parent: {fileID: 0}
+  _parent: {fileID: 3913799378903054703}
   _garbagePrefabList:
   - {fileID: 5167885334623712323, guid: 50eac778855dac24983b809d160e6f87, type: 3}
   - {fileID: 8732635659561042999, guid: f500672348a60d744844435bc3a39490, type: 3}
@@ -401,10 +401,9 @@ GameObject:
   - component: {fileID: 3503981587838432193}
   - component: {fileID: 6816234809765693569}
   - component: {fileID: 6051220502453563864}
-  - component: {fileID: 7544299855596272368}
   - component: {fileID: 5342657666259867322}
-  - component: {fileID: 7395304231826350645}
   - component: {fileID: 2046860884025702972}
+  - component: {fileID: 7232692215909156219}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -465,34 +464,6 @@ MonoBehaviour:
   maxBeePainters: 10
   maxDroneBees: 10
   beePainterPrefab: {fileID: 5504912898807968666, guid: 84622da5c1893fa47b82c61b6c9da139, type: 3}
---- !u!114 &7544299855596272368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9122681056311143781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58935b5a800de745a99ad3c1478936b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnWin:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  WinPercentage: 0.7
 --- !u!114 &5342657666259867322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,24 +480,7 @@ MonoBehaviour:
   _distanceToActivate: 10
   _distanceToDeactivate: 15
   CheckInterval: 0.3
-  RefferenceTransform: {fileID: 0}
---- !u!114 &7395304231826350645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9122681056311143781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0a58c73833f2a469a5e94748732cda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxBees: 100
-  beePrefab: {fileID: 2614364768574325396, guid: ee1bec585da347547a9e829b30504159, type: 3}
-  maxBeePainters: 10
-  maxDroneBees: 10
-  beePainterPrefab: {fileID: 5504912898807968666, guid: 84622da5c1893fa47b82c61b6c9da139, type: 3}
+  RefferenceTransform: {fileID: 3503981587838432193}
 --- !u!114 &2046860884025702972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,3 +509,20 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   WinPercentage: 0.75
+--- !u!114 &7232692215909156219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122681056311143781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0a58c73833f2a469a5e94748732cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBees: 100
+  beePrefab: {fileID: 2614364768574325396, guid: ee1bec585da347547a9e829b30504159, type: 3}
+  maxBeePainters: 10
+  maxDroneBees: 10
+  beePainterPrefab: {fileID: 5504912898807968666, guid: 84622da5c1893fa47b82c61b6c9da139, type: 3}

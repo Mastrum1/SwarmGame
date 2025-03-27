@@ -8,8 +8,9 @@ namespace Garbage
     /// </summary>
     public class TotalCleaningManager : MonoBehaviour
     {
-        public Action<float> OnPercentageChanged;
+        public Action<TotalCleaningManager> OnPercentageChanged;
         public float Percentage => (float)_cleanedGarbage / _totalGarbage;
+        public int CleanedGarbage => _cleanedGarbage;
         
         [SerializeField] private Garbage[] _totalGarbages;
 
@@ -35,7 +36,7 @@ namespace Garbage
         private void OnGarbageCleaned(Garbage garbage)
         {
             _cleanedGarbage += garbage.EntitiesToAdd;
-            OnPercentageChanged?.Invoke(Percentage);
+            OnPercentageChanged?.Invoke(this);
         }
 
         private void Reset()

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5333614123013115502
 Transform:
   m_ObjectHideFlags: 0
@@ -4856,6 +4856,7 @@ GameObject:
   - component: {fileID: 4500121231061847982}
   - component: {fileID: 5502248795963202287}
   - component: {fileID: 1605155959602321998}
+  - component: {fileID: 1189837286566364791}
   m_Layer: 0
   m_Name: Garbage
   m_TagString: Untagged
@@ -4967,6 +4968,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EntitiesToAdd>k__BackingField: 5
   _feedback: {fileID: 11400000, guid: 142aa02931590cc42911eff1a266980b, type: 2}
+--- !u!114 &1189837286566364791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804429513923575463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234ab315c0bc49b194212b574a2558e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factory: {fileID: 11400000, guid: 972881d0036df5e44bdb813be821c471, type: 2}
 --- !u!1 &6570962869856564558
 GameObject:
   m_ObjectHideFlags: 0

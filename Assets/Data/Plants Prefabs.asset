@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919db5d37efe49b7884495b519e23de8, type: 3}
+  m_Name: Plants Prefabs
+  m_EditorClassIdentifier: 
+  <PlantPrefabs>k__BackingField:
+  - {fileID: 6470745746846778768, guid: 945655862cb0b314a9f35f5aa7539e7c, type: 3}
+  - {fileID: 4215549707296995928, guid: e5563e479f10a6240bdb7bb003ace630, type: 3}
+  - {fileID: 1927009717315446606, guid: 1d38a60a1284d0245a7deca5b2ec20b0, type: 3}
+  - {fileID: 6877837925990678996, guid: 6f3826cf240129742aee37516fb6ac57, type: 3}
+  - {fileID: 3955580339942735214, guid: 7bddd7418cdc00f42a66801d670fa17d, type: 3}
+  - {fileID: 3693570780293182778, guid: 6078296b62ad97747aa21da8ed026e79, type: 3}
+  - {fileID: 8282867270639015880, guid: bc1c1dbaebe551447a1a73970bed6df7, type: 3}
+  - {fileID: 8876065521228125293, guid: f0569a9aa1606af49b3ab1509b695b2e, type: 3}
+  - {fileID: 6956641711882408445, guid: 55f75772615c85645b6ee0b089f1a732, type: 3}
+  - {fileID: 6372955023263389107, guid: c2106d66ed1a6004ca07852877831713, type: 3}
+  - {fileID: 1425662411699953474, guid: 350ac5e294c855d40aa6db1a17245228, type: 3}
+  - {fileID: 100362817507734475, guid: f0058f50df1a1e547a8e74935bb853a4, type: 3}

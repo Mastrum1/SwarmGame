@@ -4,7 +4,7 @@ namespace Garbage
 {
     public class FloorManager : MonoBehaviour
     {
-        [SerializeField] private Garbage _emptyGarbagePrefab;
+        [SerializeField] private Garbage[] _emptyGarbagePrefab;
         [SerializeField] private int _amount;
         private void Start()
         {
@@ -17,7 +17,7 @@ namespace Garbage
             for (int i = 0; i < amount; i++)
             {
                 var targetPosition = FibSphere(i, radiusMultiplier, amount);
-                MainGame.Instance.CleaningManager.CreateGarbage(_emptyGarbagePrefab, targetPosition);
+                MainGame.Instance.CleaningManager.CreateGarbage(_emptyGarbagePrefab[Random.Range(0, _emptyGarbagePrefab.Length)], targetPosition);
             }
         }
         

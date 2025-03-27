@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Garbage
 {
@@ -15,10 +17,12 @@ namespace Garbage
         public int CurrentEntities { get; private set; }
 
         [SerializeField] private Transform _parent;
-        [SerializeField] private Garbage _garbagePrefab;
+        [SerializeField] private Garbage[] _garbagePrefabList;
         [SerializeField] private int _garbageCount;
 
         [SerializeField] private List<Garbage> _totalGarbages = new();
+        
+        
 
         private int _notCleanedGarbage => _totalGarbages.Count;
         private int _totalEntities;
@@ -31,7 +35,7 @@ namespace Garbage
             var radius = planet.radius * planet.transform.localScale.y;
             for (int i = 0; i < _garbageCount; i++)
             {
-                CreateGarbage(_garbagePrefab, UnityEngine.Random.onUnitSphere * radius);
+                CreateGarbage(_garbagePrefabList[Random.Range(0, _garbagePrefabList.Length)], UnityEngine.Random.onUnitSphere * radius);
             }
 
             MainGame.Instance.OnGarbageCleaned += OnGarbageCleaned;
@@ -39,7 +43,17 @@ namespace Garbage
 
         public void CreateGarbage(Garbage prefab, Vector3 position)
         {
-            var garbage = Instantiate(prefab, position, UnityEngine.Quaternion.identity, _parent);
+            var garbage = Instantiate(prefab, position, Quaternion.identity, _parent);
+            var randomRotation = Random.rotation;
+
+            if (garbage.IsRotable) garbage.transform.rotation = randomRotation;
+            else
+            {
+                Vector3 direction = (MainGame.Instance.Planet.transform.position - transform.position).normalized;
+                Vector3 forward = Vector3.Cross(direction, Random.onUnitSphere);
+                garbage.transform.rotation = Quaternion.LookRotation(forward, direction);
+            }
+            
             _totalGarbages.Add(garbage);
             _totalEntities += garbage.EntitiesToAdd;
         }

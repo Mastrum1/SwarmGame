@@ -15,7 +15,7 @@ namespace Garbage
     public class TotalCleaningManager : MonoBehaviour
     {
         public Action<TotalCleaningManager> OnPercentageChanged;
-        public float CleanedPercentage => 1 - (float)_notCleanedGarbage / GarbageCount;
+        public float CleanedPercentage => CleanedGarbageCount / GarbageCount;
 
 
         public Transform Parent;
@@ -24,7 +24,8 @@ namespace Garbage
         public float SpawnRadius;
         [SerializeField] private List<Garbage> _totalGarbages = new();
 
-        public int _notCleanedGarbage => _totalGarbages.Count;
+        public int NotCleanedGarbageCount => _totalGarbages.Count;
+        public int CleanedGarbageCount => GarbageCount - NotCleanedGarbageCount;
 
         private void Awake()
         {

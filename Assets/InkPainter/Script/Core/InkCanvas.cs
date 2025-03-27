@@ -778,7 +778,7 @@ namespace Es.InkPainter
 				return PaintUVDirect(brush, uv, materialSelector);
 			else
 			{
-				Debug.LogWarning("Could not get the point on the surface.");
+				//Debug.LogWarning("Could not get the point on the surface.");
 				return PaintNearestTriangleSurface(brush, worldPos, materialSelector, renderCamera);
 			}
 		}

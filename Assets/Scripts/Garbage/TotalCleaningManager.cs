@@ -66,7 +66,10 @@ namespace Garbage
             else
             {
                 Vector3 direction = (MainGame.Instance.Planet.transform.position - transform.position).normalized;
-                Vector3 forward = Vector3.Cross(direction, Random.onUnitSphere);
+                Vector3 forward = Vector3.Cross(direction, Random.onUnitSphere).normalized;
+                if (forward.magnitude < 0.01f)
+                    forward = garbage.transform.forward;
+
                 garbage.transform.rotation = Quaternion.LookRotation(forward, direction);
             }
             

@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+    
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody rb;
@@ -42,6 +48,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _gravityDirection = (planetPosition.position - transform.position).normalized;
+        rb.maxLinearVelocity = speed * 2.5f;
     }
 
     private void OnEnable()
@@ -72,9 +79,10 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector2 movement = _moveAction.ReadValue<Vector2>();
-        var moveDirection = transform.forward * (movement.x * speed);
-        moveDirection += transform.right * (movement.y * speed);
-        rb.linearVelocity = moveDirection * speed;
+        var moveDirection = transform.forward * (movement.x);
+        moveDirection += transform.right * (movement.y);
+        rb.linearVelocity += moveDirection.normalized * speed;
+        
         if (_jumpAction.WasPressedThisFrame()) Jump();
     }
     
@@ -115,12 +123,12 @@ public class PlayerController : MonoBehaviour
         var distance = Vector3.Distance(transform.position, planetPosition.position);
         
         if (!_groundData.grounded)
-            gravityStrength += gravityStrength * 11 * Time.deltaTime;
+            gravityStrength += gravityStrength * Time.deltaTime;
         else
             gravityStrength = gravity;
         
         Vector3 direction = (planetPosition.position - transform.position).normalized;
-        rb.AddForce(direction * (gravity * gravityStrength * distance));
+        rb.AddForce(direction * (gravity * gravityStrength * distance / 10));
     }
 
     private void RotateToPlanet()
@@ -132,15 +140,18 @@ public class PlayerController : MonoBehaviour
     
     private void CheckGround()
     {
-        if(Physics.CheckSphere(groundCollider.position, 0, groundLayerMask))
+        if(Physics.Raycast(transform.position, transform.up, out RaycastHit hit, 5f, groundLayerMask) && hit.collider != null)
         {
-            Physics.Raycast(groundCollider.position, -transform.up, out RaycastHit hit, 5f);
             _groundData.grounded = true;
             _groundData.normal = hit.normal;
             return;
         }
+        else
+        {
+            _groundData.grounded = false;
+            _groundData.normal = -_gravityDirection;
+        }
 
-        _groundData.grounded = false;
-        _groundData.normal = -_gravityDirection;
+        
     }
 }

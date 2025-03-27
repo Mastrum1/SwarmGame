@@ -44,6 +44,9 @@
         },
         {
             "m_Id": "c6fe0d13f0804c09be68467ee428d42c"
+        },
+        {
+            "m_Id": "8d23a9f213c34ef4a3d7f14b6f3b9bef"
         }
     ],
     "m_Keywords": [],
@@ -1754,6 +1757,36 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "8d23a9f213c34ef4a3d7f14b6f3b9bef",
+    "m_Guid": {
+        "m_GuidSerialized": "faed6255-2d3b-4032-99a5-3ec2031fb1ea"
+    },
+    "m_Name": "MainNormals",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "MainNormals",
+    "m_DefaultReferenceName": "_MainNormals",
+    "m_OverrideReferenceName": "_BumpMap",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 3
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
     "m_ObjectId": "8df3c42ae2f443d6bbde8ba4d2e2e635",
     "m_Guid": {
         "m_GuidSerialized": "cc35cc77-7729-474a-a7df-c4d2f040a8cd"
@@ -2074,6 +2107,9 @@
         },
         {
             "m_Id": "c6fe0d13f0804c09be68467ee428d42c"
+        },
+        {
+            "m_Id": "8d23a9f213c34ef4a3d7f14b6f3b9bef"
         }
     ]
 }

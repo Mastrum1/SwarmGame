@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1420275406802002718}
   - component: {fileID: 5535251568101322080}
   - component: {fileID: -4624646655492463268}
-  - component: {fileID: 4595476314168400991}
   m_Layer: 0
   m_Name: Tire_02
   m_TagString: Untagged
@@ -73,19 +72,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4595476314168400991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206020404952037802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 234ab315c0bc49b194212b574a2558e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _factory: {fileID: 11400000, guid: 972881d0036df5e44bdb813be821c471, type: 2}
 --- !u!1001 &1858193499508421590
 PrefabInstance:
   m_ObjectHideFlags: 0

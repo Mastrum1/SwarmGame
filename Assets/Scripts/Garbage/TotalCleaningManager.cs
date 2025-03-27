@@ -18,9 +18,9 @@ namespace Garbage
         [SerializeField] private Garbage _garbagePrefab;
         [SerializeField] private int _garbageCount;
 
-        [SerializeField] private List<Garbage> _totalGarbages = new();
+        public List<Garbage> TotalGarbages = new();
 
-        private int _notCleanedGarbage => _totalGarbages.Count;
+        private int _notCleanedGarbage => TotalGarbages.Count;
         private int _totalEntities;
 
         private void Start()
@@ -40,8 +40,9 @@ namespace Garbage
         public void CreateGarbage(Garbage prefab, Vector3 position)
         {
             var garbage = Instantiate(prefab, position, UnityEngine.Quaternion.identity, _parent);
-            _totalGarbages.Add(garbage);
+            TotalGarbages.Add(garbage);
             _totalEntities += garbage.EntitiesToAdd;
+            garbage.gameObject.SetActive(false);
         }
 
         private void OnDisable()
@@ -51,7 +52,7 @@ namespace Garbage
 
         private void OnGarbageCleaned(Garbage garbage)
         {
-            _totalGarbages.Remove(garbage);
+            TotalGarbages.Remove(garbage);
             CurrentEntities += garbage.EntitiesToAdd;
             OnPercentageChanged?.Invoke(this);
         }
@@ -66,7 +67,7 @@ namespace Garbage
         /// </summary>
         public void AssignGarbages()
         {
-            _totalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None).ToList();
+            TotalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None).ToList();
         }
     }
 }

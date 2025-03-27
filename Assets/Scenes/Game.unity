@@ -710,6 +710,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28eae06fc90493742a1f86565149800d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &702655931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702655923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6484133d247ed4ba7c63f505567dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalCleaningManager: {fileID: 1515874001}
+  _distanceToActivate: 55
+  _distanceToDeactivate: 55
+  _checkInterval: 0.3
 --- !u!114 &747051464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1605155959602321998, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
@@ -1128,11 +1144,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!4 &1314472746 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3507726164448898764, guid: a97e0e249a7b27a4684fc41bee5b9f80, type: 3}
-  m_PrefabInstance: {fileID: 731797674807195490}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1314472751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12722,6 +12733,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5459383768386624742, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
   m_PrefabInstance: {fileID: 1812838562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1515874001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+  m_PrefabInstance: {fileID: 1036350961671929176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa229d0fc3849b2852c7d20fc93152b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1778733133 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1605155959602321998, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
@@ -13098,6 +13120,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1212273780}
     - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+      propertyPath: _parent
+      value: 
+      objectReference: {fileID: 1212273780}
+    - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: SpawnRadius
       value: 108
       objectReference: {fileID: 0}
@@ -13109,6 +13135,14 @@ PrefabInstance:
       propertyPath: GarbagePrefab
       value: 
       objectReference: {fileID: 5804429513923575463, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
+    - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+      propertyPath: _garbageCount
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+      propertyPath: _garbagePrefab
+      value: 
+      objectReference: {fileID: 1605155959602321998, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
     - target: {fileID: 448110402743208376, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: _totalGarbages.Array.size
       value: 9
@@ -13200,7 +13234,7 @@ PrefabInstance:
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Planet>k__BackingField
       value: 
-      objectReference: {fileID: 1314472746}
+      objectReference: {fileID: 115537253}
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Player>k__BackingField
       value: 
@@ -13234,11 +13268,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: brush.brushColor.a
-      value: 1
+      value: 0.4117647
       objectReference: {fileID: 0}
     - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: brush.brushColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: brush.brushColor.g
@@ -13246,7 +13280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: brush.brushColor.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: brush.colorBlendType
@@ -13427,7 +13461,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1186679634981222013, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 702655931}
   m_SourcePrefab: {fileID: 100100000, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
 --- !u!1001 &5590923692759108070
 PrefabInstance:

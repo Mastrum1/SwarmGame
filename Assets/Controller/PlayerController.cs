@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _lookAction;
     private InputAction _jumpAction;
+    private InputAction _plant;
     
     private RayData _groundData;
     private Vector3 _gravityDirection;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         _moveAction = _playerInputs.Player.Move;
         _lookAction = _playerInputs.Player.Look;
         _jumpAction = _playerInputs.Player.Jump;
+        _plant = _playerInputs.Player.Plant;
         _groundData = new RayData();
     }
 
@@ -89,6 +91,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PlantTree()
+    {
+        if (_plant.WasPressedThisFrame())
+        {
+            Debug.Log(" Tree planted");
+        }
+    }
+    
     private void ApplyGravity()
     {
         var distance = Vector3.Distance(transform.position, planetPosition.position);

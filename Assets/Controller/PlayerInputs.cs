@@ -176,7 +176,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""942511d6-6ae9-43ea-b387-f7a9c610981b"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

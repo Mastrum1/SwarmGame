@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c63440437c365eb4f96775a61eb0ed34, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b032b270160015f4da1b432193c96a0e, type: 2}
+      objectReference: {fileID: 2100000, guid: f067f9da764550c47bd9d457a57a038e, type: 2}
     - target: {fileID: 919132149155446097, guid: c63440437c365eb4f96775a61eb0ed34, type: 3}
       propertyPath: m_Name
       value: Higer Resulotion Planet
@@ -12506,6 +12506,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: brush.brushColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: brush.brushColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: brush.brushColor.g
+      value: 0.009008826
+      objectReference: {fileID: 0}
+    - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: brush.brushColor.r
+      value: 0.156
+      objectReference: {fileID: 0}
+    - target: {fileID: 914078553891724591, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: brush.colorBlendType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1186679634981222013, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_Name
       value: Player

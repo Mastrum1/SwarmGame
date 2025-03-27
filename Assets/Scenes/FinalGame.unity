@@ -557,6 +557,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7404759454079906334, guid: 92244b2209c08194498e3cb60a789847, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1566567990}
+    - target: {fileID: 7404759454079906334, guid: 92244b2209c08194498e3cb60a789847, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetartGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1398,6 +1406,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5459383768386624742, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
   m_PrefabInstance: {fileID: 1812838562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1566567990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2046860884025702972, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+  m_PrefabInstance: {fileID: 201005270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58935b5a800de745a99ad3c1478936b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1640509948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6093937270562617765, guid: 92244b2209c08194498e3cb60a789847, type: 3}

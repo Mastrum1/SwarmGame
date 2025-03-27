@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class WinCondition : MonoBehaviour
 
     public void RetartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        int index = (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(index);
     }
 }

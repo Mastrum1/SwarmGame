@@ -38,7 +38,7 @@ public class SmallEntity : MonoBehaviour
         _speed = Random.Range(_minSpeed, _maxSpeed);
         _radius = Random.Range(_minRadius, _maxRadius);
         _lerp = Random.Range(_minLerp, _maxLerp);
-        _planetPosition = MainGame.Instance.Planet.position;
+        _planetPosition = MainGame.Instance.Planet.transform.position;
     }
 
     public void FixedUpdate()

@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
+	    transform.SetParent(null);
             Instance = this;
             DontDestroyOnLoad(this);
         }

@@ -102,7 +102,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Secondary_Map:
         m_Texture: {fileID: 2800000, guid: 1d77976276dae2d40b50470c85cc5c15, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 40, y: 40}
         m_Offset: {x: 0, y: 0}
     - _Secondary_Normal:
         m_Texture: {fileID: 2800000, guid: 93cae7838533f4d488a42f28dafe9a7b, type: 3}
@@ -123,6 +123,10 @@ Material:
     - _Third_Normal:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _first_Map:
+        m_Texture: {fileID: 2800000, guid: 6f6fb0210bd181b4ebf8fa3095d0d9d2, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}

@@ -16,9 +16,6 @@
             "m_Id": "bbbb7e6f3f42463a907fe70038aa66d9"
         },
         {
-            "m_Id": "38829bab660c44b2bb1089f50253e2e3"
-        },
-        {
             "m_Id": "17222455b64d4561bd7c5ecb7ef8207b"
         }
     ],
@@ -1099,9 +1096,6 @@
             "m_Id": "bbbb7e6f3f42463a907fe70038aa66d9"
         },
         {
-            "m_Id": "38829bab660c44b2bb1089f50253e2e3"
-        },
-        {
             "m_Id": "17222455b64d4561bd7c5ecb7ef8207b"
         }
     ]
@@ -1367,36 +1361,6 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "38829bab660c44b2bb1089f50253e2e3",
-    "m_Guid": {
-        "m_GuidSerialized": "e6f21e5c-2eac-4063-ab99-ec4049a28e86"
-    },
-    "m_Name": "Fith_Map (1)",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Fith_Map (1)",
-    "m_DefaultReferenceName": "_Fith_Map_1",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "",
-        "m_Guid": ""
-    },
-    "isMainTexture": false,
-    "useTilingAndOffset": false,
-    "m_Modifiable": true,
-    "m_DefaultType": 0
 }
 
 {

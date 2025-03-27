@@ -2,7 +2,7 @@
 
 namespace Es.InkPainter.Sample
 {
-	[RequireComponent(typeof(Collider), typeof(MeshRenderer))]
+	[RequireComponent(typeof(Collider))]
 	public class CollisionPainter : MonoBehaviour
 	{
 		[SerializeField]
@@ -16,7 +16,6 @@ namespace Es.InkPainter.Sample
 
 		public void Awake()
 		{
-			GetComponent<MeshRenderer>().material.color = brush.Color;
 			_inkCanvas = FindFirstObjectByType<InkCanvas>();
 		}
 

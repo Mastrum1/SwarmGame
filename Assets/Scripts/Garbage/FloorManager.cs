@@ -17,7 +17,7 @@ namespace Garbage
             for (int i = 0; i < amount; i++)
             {
                 var targetPosition = FibSphere(i, radiusMultiplier, amount);
-                MainGame.Instance.CleaningManager.CreateGarbage(_emptyGarbagePrefab, targetPosition);
+                MainGame.Instance.CleaningManager.CreateGarbage(_emptyGarbagePrefab.gameObject, targetPosition);
             }
         }
         

@@ -15,13 +15,15 @@ namespace Garbage
         public int CurrentEntities { get; private set; }
 
         [SerializeField] private Transform _parent;
-        [SerializeField] private Garbage _garbagePrefab;
+        [SerializeField] private GameObject _garbagePrefab;
         [SerializeField] private int _garbageCount;
 
-        public List<Garbage> TotalGarbages = new();
+        public List<GameObject> TotalGarbages = new();
 
         private int _notCleanedGarbage => TotalGarbages.Count;
         private int _totalEntities;
+
+        private GameObjectsActivator.VisibilityGroup _visibilityGroup;
 
         private void Start()
         {
@@ -35,24 +37,38 @@ namespace Garbage
             }
 
             MainGame.Instance.OnGarbageCleaned += OnGarbageCleaned;
+
+            _visibilityGroup = new GameObjectsActivator.VisibilityGroup
+            {
+                objects = TotalGarbages,
+                distanceToActivate = 55,
+                distanceToDeactivate = 55
+            };
+            FindAnyObjectByType<GameObjectsActivator>().RegisterVisibilityGroup(_visibilityGroup);
         }
 
-        public void CreateGarbage(Garbage prefab, Vector3 position)
+        public void CreateGarbage(GameObject prefab, Vector3 position)
         {
+            if(!prefab.TryGetComponent(out Garbage _))
+            {
+                Debug.LogError("The prefab does not have a Garbage component");
+                return;
+            }
             var garbage = Instantiate(prefab, position, UnityEngine.Quaternion.identity, _parent);
             TotalGarbages.Add(garbage);
-            _totalEntities += garbage.EntitiesToAdd;
+            _totalEntities += garbage.GetComponent<Garbage>().EntitiesToAdd;
             garbage.gameObject.SetActive(false);
         }
 
         private void OnDisable()
         {
             MainGame.Instance.OnGarbageCleaned -= OnGarbageCleaned;
+            FindAnyObjectByType<GameObjectsActivator>().UnregisterVisibilityGroup(_visibilityGroup);
         }
 
         private void OnGarbageCleaned(Garbage garbage)
         {
-            TotalGarbages.Remove(garbage);
+            TotalGarbages.Remove(garbage.gameObject);
             CurrentEntities += garbage.EntitiesToAdd;
             OnPercentageChanged?.Invoke(this);
         }
@@ -67,7 +83,7 @@ namespace Garbage
         /// </summary>
         public void AssignGarbages()
         {
-            TotalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None).ToList();
+            TotalGarbages = GameObject.FindObjectsByType<Garbage>(FindObjectsSortMode.None).Select(i => i.gameObject).ToList();
         }
     }
 }

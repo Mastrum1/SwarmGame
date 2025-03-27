@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 914078553891724591}
   - component: {fileID: 187562875191080885}
   - component: {fileID: 9167020668672738550}
+  - component: {fileID: 4116455643036712909}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28eae06fc90493742a1f86565149800d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 11.385
   rb: {fileID: 7066067251994211995}
   mouseSensitivityCurve:
     serializedVersion: 2
@@ -548,6 +549,20 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4116455643036712909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186679634981222013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c54cd488f141f7b380c9845ef7d4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialSpeed: 50
+  _endSpeed: 100
 --- !u!1 &1292395146955619339
 GameObject:
   m_ObjectHideFlags: 0

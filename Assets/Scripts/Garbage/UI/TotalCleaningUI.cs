@@ -29,7 +29,7 @@ namespace Garbage.UI
         private void UpdateUI(TotalCleaningManager cleaningManager)
         {
             UpdateTotal(cleaningManager.CleanedGarbage);
-            UpdatePercentage(cleaningManager.Percentage);
+            UpdatePercentage(cleaningManager.CleanedPercentage);
         }
 
         private void UpdatePercentage(float percentage)

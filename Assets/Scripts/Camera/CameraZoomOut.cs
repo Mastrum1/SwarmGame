@@ -16,7 +16,7 @@ namespace Scripts.Camera
 
         private void UpdateZoom(Garbage.Garbage garbage)
         {
-            var zoomLevel = Mathf.Lerp(_initialZoom, _endZoom, MainGame.Instance.CleaningManager.Percentage);
+            var zoomLevel = Mathf.Lerp(_initialZoom, _endZoom, MainGame.Instance.CleaningManager.CleanedPercentage);
             _camera.localPosition = new Vector3(_camera.localPosition.x, zoomLevel, _camera.localPosition.z);
         }
     }

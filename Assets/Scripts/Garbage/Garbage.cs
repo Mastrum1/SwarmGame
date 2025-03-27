@@ -35,7 +35,7 @@ namespace Garbage
             GameEventsManager.PlayEvent(_feedback, gameObject);
 
             if (_plantSpawner != null)
-                _plantSpawner.Spawn(gameObject);
+                _plantSpawner.Spawn(transform.position);
 
             cleaner.Clean(this);
         }

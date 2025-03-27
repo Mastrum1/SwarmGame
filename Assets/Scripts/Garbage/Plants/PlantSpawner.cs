@@ -47,20 +47,14 @@ namespace Garbage.Plants
             }
         }
 
-        public void Spawn(GameObject origion)
+        public void Spawn(Vector3 pos)
         {
-            Vector3 direction = (MainGame.Instance.Planet.transform.position - transform.position).normalized;
-            Vector3 forward = Vector3.Cross(direction, Random.onUnitSphere).normalized;
-            if (forward.magnitude < 0.01f)
-                forward = origion.transform.forward;
-
-            Quaternion rotation = Quaternion.LookRotation(forward, direction); 
-            
             var randomPlant = _factory.PlantPrefabs.GetRandomItem();
-            var newPlant = Instantiate(randomPlant, origion.transform.position, rotation, transform);
-            _plants.Add(newPlant);
-
+            var newPlant = Instantiate(randomPlant, pos, transform.rotation, null);
             
+            Vector3 direction = (pos - MainGame.Instance.Planet.transform.position).normalized;
+            Vector3 forward = Vector3.Cross(direction, Random.onUnitSphere);
+            newPlant.transform.rotation = Quaternion.LookRotation(forward, direction);
         }
     }
 }

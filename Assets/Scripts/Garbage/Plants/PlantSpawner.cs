@@ -13,8 +13,11 @@ namespace Garbage.Plants
         private void OnDestroy()
         {
             var randomPlant = _factory.PlantPrefabs.GetRandomItem();
-            var newPlant = Instantiate(randomPlant, transform.position, transform.rotation, transform.parent);
-            newPlant.transform.up = transform.position - (MainGame.Instance.Planet.transform.position);
+            var newPlant = Instantiate(randomPlant, transform.position, transform.rotation, null);
+            
+            Vector3 direction = (transform.position - MainGame.Instance.Planet.transform.position).normalized;
+            Vector3 forward = Vector3.Cross(direction, Random.onUnitSphere);
+            newPlant.transform.rotation = Quaternion.LookRotation(forward, direction);
         }
     }
 }

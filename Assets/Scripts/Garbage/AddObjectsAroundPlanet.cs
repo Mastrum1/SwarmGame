@@ -17,6 +17,7 @@ public class AddObjectsAroundPlanet : MonoBehaviour
     private void Start()
     {
         var planet = MainGame.Instance.Planet;
+
         var radius = planet.radius * planet.transform.localScale.y;
         var newGameObjects = new List<GameObject>();
         for (int i = 0; i < _amount; i++)

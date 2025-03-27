@@ -12058,7 +12058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1212273780
 Transform:
   m_ObjectHideFlags: 0
@@ -18885,6 +18885,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b47c9745b8c186d419d2dfdb39568e6e, type: 3}
   m_PrefabInstance: {fileID: 1841116107}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &1866298163 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 5233840471545762791, guid: a97e0e249a7b27a4684fc41bee5b9f80, type: 3}
+  m_PrefabInstance: {fileID: 289354150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1894433772
 GameObject:
   m_ObjectHideFlags: 0
@@ -18987,6 +18992,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894433772}
   m_Mesh: {fileID: -5141700695902245142, guid: a4121fd8d43464b4185fc5082566150d, type: 3}
+--- !u!1 &1906403652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6093937270562617765, guid: 92244b2209c08194498e3cb60a789847, type: 3}
+  m_PrefabInstance: {fileID: 5590923692759108070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1912333988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19996,6 +20006,10 @@ PrefabInstance:
       propertyPath: <Entities>k__BackingField.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2046860884025702972, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1906403652}
     - target: {fileID: 3503981587838432193, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20047,7 +20061,7 @@ PrefabInstance:
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Planet>k__BackingField
       value: 
-      objectReference: {fileID: 289354151}
+      objectReference: {fileID: 1866298163}
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Player>k__BackingField
       value: 
@@ -20314,7 +20328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerRigidbody: {fileID: 5486734101114670833}
   _playerVisual: {fileID: 615163171310240947}
-  _childVisual: {fileID: 0}
   _followLerp: 0.199
   _isOrientationInverted: 0
   _lookAtLerp: 1
@@ -24326,6 +24339,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundCollider: {fileID: 289354151}
+  beesManager: {fileID: 0}
+  dronePrefab: {fileID: 0}
 --- !u!4 &6964727551633102162
 Transform:
   m_ObjectHideFlags: 0

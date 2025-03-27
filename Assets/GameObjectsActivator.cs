@@ -24,7 +24,7 @@ public class GameObjectsActivator : MonoBehaviour
     {
         if(RefferenceTransform == null)
         {
-            RefferenceTransform = transform;
+            RefferenceTransform = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
     }

@@ -56,6 +56,7 @@ public class BeesManager : MonoBehaviour
         public void ActivateBee()
         {
             _ownerBeesCount++;
+            _ownerBeesCount = _ownerBeesCount % maxBees;
             var bee = Array.Find(_bees, b => !b.gameObject.activeSelf);
             if (bee == null) return;
             bee.gameObject.SetActive(true);

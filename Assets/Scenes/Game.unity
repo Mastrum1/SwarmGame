@@ -1075,11 +1075,15 @@ PrefabInstance:
       objectReference: {fileID: 1515874001}
     - target: {fileID: 4116455643036712909, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: _endSpeed
-      value: 30
+      value: 12.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116455643036712909, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4116455643036712909, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: _initialSpeed
-      value: 15.5
+      value: 12.535
       objectReference: {fileID: 0}
     - target: {fileID: 5515042666603800646, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1123,7 +1127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: speed
-      value: 11.845
+      value: 12.535
       objectReference: {fileID: 0}
     - target: {fileID: 5640877442566032665, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: beesManager

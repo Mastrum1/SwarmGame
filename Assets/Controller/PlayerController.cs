@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _gravityDirection = (planetPosition.position - transform.position).normalized;
-        rb.maxLinearVelocity = speed * 2.5f;
+        rb.maxLinearVelocity = speed * 2.3f;
     }
 
     private void OnEnable()

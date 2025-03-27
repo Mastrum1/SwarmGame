@@ -866,51 +866,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5459383768386624742, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
   m_PrefabInstance: {fileID: 1138019382}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1138530245
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1138530247}
-  - component: {fileID: 1138530246}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1138530246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138530245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9405bb659d394e3893658c204e7ef264, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _emptyGarbagePrefab: {fileID: 1605155959602321998, guid: 5c6a1f284037fd340bb1e12977f9a7c9, type: 3}
---- !u!4 &1138530247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138530245}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1005.5375, y: 890, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1197027411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1690,7 +1645,7 @@ PrefabInstance:
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Planet>k__BackingField
       value: 
-      objectReference: {fileID: 1314472747}
+      objectReference: {fileID: 1314472746}
     - target: {fileID: 6816234809765693569, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: <Player>k__BackingField
       value: 
@@ -1935,4 +1890,3 @@ SceneRoots:
   - {fileID: 3326890335595198570}
   - {fileID: 1212273780}
   - {fileID: 5256262027577064601}
-  - {fileID: 1138530247}

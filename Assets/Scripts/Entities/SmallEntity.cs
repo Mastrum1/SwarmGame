@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class SmallEntity : MonoBehaviour
 {
     public Vector3 Direction { get; private set; }
+    public bool IsDrone = false;
+    public GameObject BeePainter;
     
     [SerializeField] private float _angleOffset;
     [SerializeField] private float _minSpeed;
@@ -64,7 +66,10 @@ public class SmallEntity : MonoBehaviour
     {
         Quaternion rotation = Quaternion.LookRotation(_direction, -_player.transform.up);
         transform.rotation = rotation;
-
-
+    }
+    
+    public void ChangeFollowingTarget(Transform newTarget)
+    {
+        _player = newTarget;
     }
 }

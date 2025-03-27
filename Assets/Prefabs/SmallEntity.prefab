@@ -54,6 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7990c856c82e4ece8d054b2bf86930a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDrone: 0
+  BeePainter: {fileID: 0}
   _angleOffset: 0.1
   _minSpeed: 6
   _maxSpeed: 18

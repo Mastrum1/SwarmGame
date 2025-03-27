@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,11 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private Transform groundCollider;
     
+    [Header("Bees")]
+    [SerializeField] private BeesManager beesManager;
+    [SerializeField] private Drone dronePrefab;
+    
     private PlayerInputs _playerInputs;
     private InputAction _moveAction;
     private InputAction _lookAction;
     private InputAction _jumpAction;
-    private InputAction _plant;
+    private InputAction _sendAction;
     
     private RayData _groundData;
     private Vector3 _gravityDirection;
@@ -30,7 +35,7 @@ public class PlayerController : MonoBehaviour
         _moveAction = _playerInputs.Player.Move;
         _lookAction = _playerInputs.Player.Look;
         _jumpAction = _playerInputs.Player.Jump;
-        _plant = _playerInputs.Player.Plant;
+        _sendAction = _playerInputs.Player.Plant;
         _groundData = new RayData();
     }
 
@@ -56,6 +61,12 @@ public class PlayerController : MonoBehaviour
         RotateToPlanet();
         Move();
         Rotate();
+        
+    }
+    
+    private void Update()
+    {
+        if (_sendAction.WasPressedThisFrame()) SendBees();
     }
 
     private void Move()
@@ -87,16 +98,16 @@ public class PlayerController : MonoBehaviour
     {
         if (_groundData.grounded)
         {
-            rb.AddForce(transform.up * 10, ForceMode.Impulse);
+            rb.AddForce(transform.up * 1000, ForceMode.Impulse);
         }
     }
 
-    private void PlantTree()
+    private void SendBees()
     {
-        if (_plant.WasPressedThisFrame())
-        {
-            Debug.Log(" Tree planted");
-        }
+        if (beesManager.GetBeesCount() < 5) return;
+        if (beesManager.GetDroneBeesCount() >= beesManager.GetMaxDroneBees()) return;
+        var drone = Instantiate(dronePrefab, transform.position, Quaternion.identity);
+        beesManager.ChangeBeesFollowingTarget(drone.transform, 5);
     }
     
     private void ApplyGravity()

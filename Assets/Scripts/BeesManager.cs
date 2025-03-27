@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BeesManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class BeesManager : MonoBehaviour
     [SerializeField] private int maxBees;
     [SerializeField] private GameObject beePrefab;
     [SerializeField] private int maxBeePainters;
+    [SerializeField] private int maxDroneBees = 10;
     [SerializeField] private GameObject beePainterPrefab;
     
     private SmallEntity[] _bees;
@@ -13,58 +15,101 @@ public class BeesManager : MonoBehaviour
     private GameObject[] _beePainters;
     private int _ownerBeesCount;
     private bool _randomisePainterParent = false;
+    private int _droneBeesCount = 0;
+    
+    bool _useAutoPainters = false;
 
     private void Start()
     {
         _ownerBeesCount = 0;
         _bees = new SmallEntity[maxBees];
         _ownedBees = new SmallEntity[maxBees];
+        if (_useAutoPainters) _beePainters = new GameObject[maxBeePainters];
         for (var i = 0; i < maxBees; i++)
         {
             var bee = Instantiate(beePrefab, transform).GetComponent<SmallEntity>();
             _bees[i] = bee;
             bee.gameObject.SetActive(false);
         }
-        
-        _beePainters = new GameObject[maxBeePainters];
-        for (var i = 0; i < maxBeePainters; i++)
+
+        if (!_useAutoPainters) return;
+        for (int i = 0; i < maxBeePainters; i++)
         {
             var beePainter = Instantiate(beePainterPrefab, transform);
+            beePainter.SetActive(false);
             _beePainters[i] = beePainter;
-            beePainter.gameObject.SetActive(false);
-        }
-    }
-    
-    private void Update()
-    {
-        if (_randomisePainterParent)
-        {
-            foreach (var beePainter in _beePainters)
-            {
-                var randomBee = _ownedBees[UnityEngine.Random.Range(0, _ownerBeesCount)];
-                beePainter.transform.parent = randomBee.transform;
-                beePainter.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            }
         }
     }
 
-    public void ActivateBee()
-    {
-        var bee = Array.Find(_bees, b => !b.gameObject.activeSelf);
-        if (bee == null) return;
-        bee.gameObject.SetActive(true);
-        _ownedBees[_ownerBeesCount] = bee;
-        
-        if (_ownerBeesCount < maxBeePainters)
+    private void Update()
         {
-            var beePainter = _beePainters[_ownerBeesCount];
-            beePainter.transform.parent = bee.transform;
-            beePainter.transform.localPosition = Vector3.zero;
-            beePainter.SetActive(true);
+            if (_randomisePainterParent && _useAutoPainters)
+            {
+                foreach (var beePainter in _beePainters)
+                {
+                    var randomBee = _ownedBees[UnityEngine.Random.Range(0, _ownerBeesCount)];
+                    beePainter.transform.SetParent(randomBee.transform);
+                }
+            }
         }
-        else if (_ownerBeesCount == maxBeePainters)
-            _randomisePainterParent = true;
+
+        public void ActivateBee()
+        {
+            var bee = Array.Find(_bees, b => !b.gameObject.activeSelf);
+            if (bee == null) return;
+            bee.gameObject.SetActive(true);
+            _ownedBees[_ownerBeesCount] = bee;
         
-        _ownerBeesCount++;
-    }
+            if (!_randomisePainterParent && _useAutoPainters)
+            {
+                var beePainter = Array.Find(_beePainters, b => !b.gameObject.activeSelf);
+                if (beePainter == null)
+                {
+                    _randomisePainterParent = true;
+                }
+                else
+                {
+                    beePainter.SetActive(true);
+                    beePainter.transform.SetParent(bee.transform);
+                }
+            }
+            _ownerBeesCount++;
+        }
+    
+        public void DeactivateBee(SmallEntity bee)
+        {
+            bee.gameObject.SetActive(false);
+            _ownerBeesCount--;
+        }
+    
+        public void ChangeBeesFollowingTarget(Transform target, int amount)
+        {
+            if (amount > _ownerBeesCount) return;
+            if (_droneBeesCount >= maxDroneBees) return;
+        
+            for (var i = 0; i < amount; i++)
+            {
+                var bee = Array.Find(_bees, b => !b.IsDrone);
+                bee.ChangeFollowingTarget(target);
+                bee.IsDrone = true;
+            }
+
+            _ownerBeesCount -= amount;
+            _droneBeesCount++;
+        }
+
+        public int GetBeesCount()
+        {
+            return _ownerBeesCount;
+        }
+    
+        public int GetDroneBeesCount()
+        {
+            return _droneBeesCount;
+        }
+    
+        public int GetMaxDroneBees()
+        {
+            return maxDroneBees;
+        }
 }

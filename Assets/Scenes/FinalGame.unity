@@ -527,7 +527,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3569219883581542658, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3503981587838432193, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
@@ -2115,6 +2116,7 @@ GameObject:
   - component: {fileID: 1225118270}
   - component: {fileID: 1225118274}
   - component: {fileID: 1225118273}
+  - component: {fileID: 1225118275}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2189,13 +2191,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225118269}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.29883623, y: 0.64085644, z: 0.29883623, w: 0.64085644}
-  m_LocalPosition: {x: -6, y: 9.42, z: 0}
+  m_LocalRotation: {x: 0.5068287, y: -0, z: -0, w: 0.86204684}
+  m_LocalPosition: {x: -3, y: 262, z: -115.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -50, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.906, y: 0, z: 0}
 --- !u!114 &1225118273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2256,6 +2258,46 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1225118275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225118269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cdc37ff7d6467cb5543f8b3548f0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 1225118273}
+  _time: 5
+  _minSpeed: 0
+  _maxSpeed: 5
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1301507229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4452451585795349583, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}

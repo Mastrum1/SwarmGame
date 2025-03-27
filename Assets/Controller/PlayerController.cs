@@ -1,3 +1,4 @@
+using System;
 using DefaultNamespace;
 using UnityEditor;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private RayData _groundData;
     private Vector3 _gravityDirection;
 
-    private int _jumpState = 0;
+    //private int _jumpState = 0;
 
     private void Awake()
     {
@@ -50,16 +51,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            _jumpState = (_jumpState + 1) % 2;
-            Cursor.visible = _jumpState == 1;
-            EditorGUIUtility.SetWantsMouseJumping(_jumpState);
-        }
-       
-        
-        
-
         _gravityDirection = (planetPosition.position - transform.position).normalized;
         rb.maxLinearVelocity = speed * 2.3f;
     }
@@ -81,9 +72,25 @@ public class PlayerController : MonoBehaviour
         RotateToPlanet();
         Move();
         Rotate();
+        CheckForEscape();
         
     }
-    
+
+    private void CheckForEscape()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleEscape();
+        }
+    }
+
+    private static void ToggleEscape()
+    {
+        Cursor.visible = !Cursor.visible;
+        if (Cursor.visible == false) Cursor.lockState = CursorLockMode.Locked;
+        else Cursor.lockState = CursorLockMode.None;
+    }
+
     private void Update()
     {
         if (_sendAction.WasPressedThisFrame()) SendBees();

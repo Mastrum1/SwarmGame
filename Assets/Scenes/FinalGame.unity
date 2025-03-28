@@ -488,7 +488,7 @@ PrefabInstance:
       objectReference: {fileID: 790706561}
     - target: {fileID: 7544299855596272368, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: WinPercentage
-      value: 0.001
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7544299855596272368, guid: 5113ddd13cedcdb42b4a872615ebe676, type: 3}
       propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1242,7 +1242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1250,15 +1250,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783790298831879385, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4111030757402653889, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_Enabled
@@ -1266,7 +1274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4111030757402653889, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: _lookAtLerp
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4111030757402653889, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: _childVisual
@@ -1459,6 +1467,10 @@ PrefabInstance:
     - target: {fileID: 6695338741412854962, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066067251994211995, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8341122242544211032, guid: 8ae249abaf0864b449ee6b3a58dbbff5, type: 3}
       propertyPath: m_LocalPosition.x

@@ -29,14 +29,15 @@ public class PlayerVisual : MonoBehaviour
         _playerVisual.up = -_playerRigidbody.transform.up;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _playerVisual.transform.position = Vector3.Lerp(_playerVisual.transform.position, _playerRigidbody.transform.position, _followLerp);
+        RotateDirection();
+
     }
 
     private void LateUpdate()
     {
-        RotateDirection();
     }
 
     private void RotateDirection()
@@ -51,8 +52,8 @@ public class PlayerVisual : MonoBehaviour
         Vector3 point = _lastDirection * orientation - _playerRigidbody.position;
         Vector3 direction = _playerRigidbody.position - point;
         if (direction.magnitude < 0.1f) return;
-        _playerVisual.up = -_playerRigidbody.transform.up;
-        Quaternion toRotation = Quaternion.LookRotation(direction, _playerVisual.up);
+        //_playerVisual.up = -_playerRigidbody.transform.up;
+        Quaternion toRotation = Quaternion.LookRotation(direction, -_playerRigidbody.transform.up);
         _playerVisual.rotation = Quaternion.Lerp(_playerVisual.rotation, toRotation, _lookAtLerp * Time.deltaTime);
         
     }
